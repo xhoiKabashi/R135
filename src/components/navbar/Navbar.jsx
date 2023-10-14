@@ -25,9 +25,7 @@ function Navbar() {
         <ul>
           <li>Home</li>
           <li>My Bookings</li>
-          <li>
-            <a href="">About</a>
-          </li>
+          <li>About</li>
           <li>
             <svg
               className="profile-logo"
