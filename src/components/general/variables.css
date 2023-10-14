@@ -1,0 +1,16 @@
+:root {
+  --main-color: #ffffff;
+  --text-color: #000000;
+  --button-color: #3d56f0;
+  --second-text-color: #807a7a;
+  --button-text-color: #ffffff;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+li {
+  list-style: none;
+}

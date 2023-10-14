@@ -1,0 +1,45 @@
+@import "../general/variables.css";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap");
+
+:root {
+  --main-color: #ffffff;
+  --text-color: #000000;
+  --button-color: #3d56f0;
+  --second-text-color: #807a7a;
+  --button-text-color: #ffffff;
+}
+
+/* src/components/Navbar.css */
+/* ... (previous styles) ... */
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--main-color);
+  width: 100%;
+  height: 96px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.nav > ul {
+  width: 50%;
+  gap: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+ul li:nth-child(3) {
+  margin-right: 50px;
+}
+
+.nav img {
+  fill: var(--text-color);
+}
+.profile-logo {
+  height: 60px;
+  width: 70px;
+  fill: var(--second-text-color);
+}
