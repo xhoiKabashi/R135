@@ -1,18 +1,20 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./navbar.css";
-
 function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   function menuHandler() {
     setMenuOpen(!menuOpen);
   }
 
+  function stopPropagation(event) {
+    event.stopPropagation();
+  }
   return (
     <>
       <nav className="nav">
         <div className="main-logo">
-          <img src="public\nav-logo.svg" alt="" />
+          <img src="src\assets\BusBox-logos_transparent 2.svg" alt="" />
         </div>
         <svg
           onClick={menuHandler}
@@ -38,13 +40,15 @@ function Navbar() {
         </ul>
       </nav>
       {menuOpen && (
-        <div className="hamb-container">
-          <div>
+        <div className="hamb-container" onClick={menuHandler}>
+          <div className="list-items" onClick={stopPropagation}>
+            <hr />
             <li>Home</li>
             <hr />
             <li>My Bookings</li>
             <hr />
             <li>About</li>
+            <hr />
           </div>
         </div>
       )}

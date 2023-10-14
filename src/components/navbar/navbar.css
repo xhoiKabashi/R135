@@ -9,6 +9,11 @@
   --button-color: #3d56f0;
   --second-text-color: #807a7a;
   --button-text-color: #ffffff;
+
+  --dark-main-color: #000000; /* Dark theme background color */
+  --dark-text-color: #ffffff; /* Dark theme text color */
+  --dark-button-color: #ff9933; /* Dark theme button color */
+  --dark-second-text-color: #807a7a; /* Dark theme secondary text color */
 }
 
 /* Styling navbar */
@@ -46,6 +51,10 @@ ul li:nth-child(3) {
   fill: var(--button-color);
 }
 
+.main-logo > img {
+  width: 180px;
+}
+
 .hamb {
   display: none;
 }
@@ -73,6 +82,15 @@ ul li:nth-child(3) {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   font-size: 20px;
+}
+/* .list-items > li:hover {
+  background-color: #807a7a;
+  color: var(--button-text-color);
+} */
+
+hr {
+  border-color: var(--second-text-color);
+  width: 100%;
 }
 
 @media (max-width: 890px) {
