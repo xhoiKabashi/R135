@@ -4,11 +4,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap");
 
 :root {
-  --main-color: #ffffff;
-  --text-color: #000000;
+  --main-color: #f0f9ff;
+  --text-color: #ffffff;
   --button-color: #3d56f0;
   --second-text-color: #807a7a;
   --button-text-color: #ffffff;
+  --nav-color: #1d4ed8;
 
   --dark-main-color: #000000; /* Dark theme background color */
   --dark-text-color: #ffffff; /* Dark theme text color */
@@ -21,20 +22,22 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-color: var(--main-color);
+  background-color: var(--nav-color);
   width: 100%;
-  height: 96px;
+  height: 76px;
+  text-transform: uppercase;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 .nav > ul {
   width: 50%;
   gap: 30px;
+  color: var(--text-color);
   display: flex;
   align-items: center;
   justify-content: end;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 /* moving the Porfile logo on the right */
@@ -46,35 +49,38 @@ ul li:nth-child(3) {
   fill: var(--text-color);
 }
 .profile-logo {
-  height: 60px;
-  width: 70px;
-  fill: var(--button-color);
+  height: 40px;
+  width: 50px;
+  fill: var(--text-color);
 }
 
 .main-logo > img {
   width: 180px;
 }
 
+/* display none for the humburger in order to be shown only on mobile version */
 .hamb {
   display: none;
+  width: 100px;
 }
 
+/* display the menu for mobile version */
 .hamb-container {
   height: 100%;
   width: 100%;
-  background-color: rgba(161, 160, 160, 0.6); /* Background with 60% opacity */
+  background-color: rgba(161, 160, 160, 0.6);
   position: absolute;
-  z-index: 9999; /* Set a high z-index value to place it on top */
+  z-index: 9999;
 }
 
 .hamb-container > div {
   width: 80%;
   height: 50%;
-  background-color: var(--main-color); /* Background color without opacity */
+  background-color: var(--main-color);
   border-radius: 15px;
   margin: 0 auto;
   margin-top: 70px;
-  z-index: 1; /* You can remove this line as it's not necessary */
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -88,29 +94,39 @@ ul li:nth-child(3) {
   color: var(--button-text-color);
 } */
 
+/* lines for the  list of menu */
 hr {
   border-color: var(--second-text-color);
   width: 100%;
 }
 
+/* adding  styling and responsivnes fpr mobile */
 @media (max-width: 890px) {
   .nav {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: start;
+    padding: 0 15px 0 15px;
   }
   .nav > ul {
     display: none;
   }
   .hamb {
-    width: 50px;
+    width: 35px;
     display: block;
-    fill: var(--button-color);
+    fill: var(--main-color);
   }
   .nav {
     height: 60px;
   }
+  .main-logo {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   .main-logo > img {
     height: 40px;
+    margin-left: -25px;
   }
 }

@@ -13,9 +13,6 @@ function Navbar() {
   return (
     <>
       <nav className="nav">
-        <div className="main-logo">
-          <img src="src\assets\BusBox-logos_transparent 2.svg" alt="" />
-        </div>
         <svg
           onClick={menuHandler}
           className="hamb"
@@ -24,6 +21,10 @@ function Navbar() {
         >
           <path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
         </svg>
+        <div className="main-logo">
+          <img src="./src/assets/bus-logo.png" alt="" />
+        </div>
+
         <ul>
           <li>Home</li>
           <li>My Bookings</li>
