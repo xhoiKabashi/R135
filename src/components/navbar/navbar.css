@@ -106,7 +106,6 @@ hr {
     display: flex;
     align-items: center;
     justify-content: start;
-    padding: 0 15px 0 15px;
   }
   .nav > ul {
     display: none;
@@ -115,6 +114,7 @@ hr {
     width: 35px;
     display: block;
     fill: var(--main-color);
+    margin-left: 10px;
   }
   .nav {
     height: 60px;
