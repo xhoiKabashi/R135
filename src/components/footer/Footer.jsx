@@ -1,26 +1,32 @@
-import "./footer.css";
+import styles from "./Footer.module.css";
 
 function Footer() {
   return (
     <>
-      <div className="footer-container">
-        <div className="footer-logos">
-          <img src="./social-logo/facebook.png" alt="" />
-          <img src="./social-logo/instagram.png" alt="" />
-          <img src="./social-logo/twitter.png" alt="" />
-        </div>
-        <div className="footer-contact">
+      <div className={styles.footerContainer}>
+        <div className={styles.footerLogos}>
           <div>
-            <p>Privacy policy </p>
-            <p>General conditions </p>
+            <img src="./social-logo/facebook.png" alt="" />
           </div>
           <div>
-            <p>Need help? </p>
+            <img src="./social-logo/instagram.png" alt="" />
+          </div>
+          <div>
+            <img src="./social-logo/twitter.png" alt="" />
+          </div>
+        </div>
+        <div className={styles.footerContact}>
+          <div>
+            <p>Privacy policy</p>
+            <p>General conditions</p>
+          </div>
+          <div>
+            <p>Need help?</p>
             <p>Contact Us</p>
           </div>
           <div>
             <p>Who we are</p>
-            <p>Careers </p>
+            <p>Careers</p>
           </div>
         </div>
       </div>

@@ -1,20 +1,16 @@
 /* Importing the general styling to remove the default */
 @import "../general/variables.css";
 /* Importing font */
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
 
 :root {
-  --main-color: #f0f9ff;
-  --text-color: #ffffff;
-  --button-color: #3d56f0;
-  --second-text-color: #807a7a;
-  --button-text-color: #ffffff;
-  --nav-color: #1d4ed8;
-
-  --dark-main-color: #000000; /* Dark theme background color */
-  --dark-text-color: #ffffff; /* Dark theme text color */
-  --dark-button-color: #ff9933; /* Dark theme button color */
-  --dark-second-text-color: #807a7a; /* Dark theme secondary text color */
+  --mainColor: #f0f9ff;
+  --textColor: #ffffff;
+  --buttonColor: rgb(0, 99, 190);
+  --secondTextColor: #807a7a;
+  --buttonTextColor: #ffffff;
+  --navColor: rgb(0, 99, 190);
+  --mainFont: "Open Sans", sans-serif;
 }
 
 /* Styling navbar */
@@ -22,50 +18,50 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-color: var(--nav-color);
+  background-color: var(--navColor);
   width: 100%;
-  height: 76px;
+  height: 57px;
   text-transform: uppercase;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 .nav > ul {
   width: 50%;
   gap: 30px;
-  color: var(--text-color);
+  color: var(--textColor);
   display: flex;
   align-items: center;
   justify-content: end;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-  font-size: 15px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
 }
 
 /* moving the Porfile logo on the right */
 ul li:nth-child(3) {
   margin-right: 30px;
 }
-/* styling and  shaping  */
+/* styling and shaping */
 .nav img {
-  fill: var(--text-color);
+  fill: var(--textColor);
 }
-.profile-logo {
+.profileLogo {
   height: 40px;
   width: 50px;
-  fill: var(--text-color);
+  fill: var(--textColor);
 }
 
-.main-logo > img {
+.mainLogo > img {
   width: 180px;
 }
 
-/* display none for the humburger in order to be shown only on mobile version */
+/* display none for the hamburger in order to be shown only on mobile version */
 .hamb {
   display: none;
   width: 100px;
 }
 
 /* display the menu for mobile version */
-.hamb-container {
+.hambContainer {
   height: 100%;
   width: 100%;
   background-color: rgba(161, 160, 160, 0.6);
@@ -73,10 +69,10 @@ ul li:nth-child(3) {
   z-index: 9999;
 }
 
-.hamb-container > div {
+.hambContainer > div {
   width: 80%;
   height: 50%;
-  background-color: var(--main-color);
+  background-color: var(--mainColor);
   border-radius: 15px;
   margin: 0 auto;
   margin-top: 70px;
@@ -89,18 +85,18 @@ ul li:nth-child(3) {
   font-weight: 600;
   font-size: 20px;
 }
-/* .list-items > li:hover {
+/* .listItems > li:hover {
   background-color: #807a7a;
-  color: var(--button-text-color);
+  color: var(--buttonTextColor);
 } */
 
-/* lines for the  list of menu */
+/* lines for the list of menu */
 hr {
-  border-color: var(--second-text-color);
+  border-color: var(--secondTextColor);
   width: 100%;
 }
 
-/* adding  styling and responsivnes fpr mobile */
+/* adding styling and responsiveness for mobile */
 @media (max-width: 890px) {
   .nav {
     display: flex;
@@ -113,19 +109,19 @@ hr {
   .hamb {
     width: 35px;
     display: block;
-    fill: var(--main-color);
+    fill: var(--mainColor);
     margin-left: 20px;
   }
   .nav {
     height: 60px;
   }
-  .main-logo {
+  .mainLogo {
     width: 90%;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  .main-logo > img {
+  .mainLogo > img {
     height: 40px;
     margin-left: -25px;
   }

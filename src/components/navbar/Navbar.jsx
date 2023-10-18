@@ -1,5 +1,6 @@
 import { useState } from "react";
-import "./navbar.css";
+import styles from "./Navbar.module.css"; // Import your CSS module
+
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -10,28 +11,31 @@ function Navbar() {
   function stopPropagation(event) {
     event.stopPropagation();
   }
+
   return (
     <>
-      <nav className="nav">
+      <nav className={styles.nav}>
         <svg
           onClick={menuHandler}
-          className="hamb"
+          className={styles.hamb}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
         >
           <path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
         </svg>
-        <div className="main-logo">
+        <div className={styles.mainLogo}>
+          {" "}
           <img src="./bus-logo.png" alt="" />
         </div>
-
         <ul>
-          <li>Home</li>
+          <li>
+            <p>Home</p>
+          </li>
           <li>My Bookings</li>
           <li>About</li>
           <li>
             <svg
-              className="profile-logo"
+              className={styles.profileLogo}
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
             >
@@ -41,8 +45,8 @@ function Navbar() {
         </ul>
       </nav>
       {menuOpen && (
-        <div className="hamb-container" onClick={menuHandler}>
-          <div className="list-items" onClick={stopPropagation}>
+        <div className={styles.hambContainer} onClick={menuHandler}>
+          <div className={styles.listItems} onClick={stopPropagation}>
             <hr />
             <li>Home</li>
             <hr />

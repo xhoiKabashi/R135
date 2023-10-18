@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+
+.footerContainer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  height: 80px;
+  background-color: #f1f5f9;
+  padding: 10px; /* Add padding as needed */
+  align-items: center;
+}
+.footerLogos {
+  display: flex;
+  gap: 30px;
+}
+.footerContact {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  color: var(--text-color);
+  gap: 40px;
+}
+.footerContact P {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.footerLogos > div {
+  background-color: #aeaeaf;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+}
+
+.footerLogos div > img {
+  height: min-content;
+  width: 20px;
+}
+
+@media (max-width: 890px) {
+  .footerContainer {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .footerLogos {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+  .footerLogos Img {
+    height: 25px;
+    width: 25px;
+  }
+  .footerContact {
+    display: flex;
+    gap: 9px;
+  }
+  .footerContact P {
+    font-size: 13px;
+  }
+}
