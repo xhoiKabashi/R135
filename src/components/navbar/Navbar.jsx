@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { NavLink, Link } from "react-router-dom";
 import styles from "./Navbar.module.css"; // Import your CSS module
 
 function Navbar() {
@@ -24,35 +25,34 @@ function Navbar() {
           <path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
         </svg>
         <div className={styles.mainLogo}>
-          {" "}
-          <img src="./bus-logo.png" alt="" />
+          <Link to="/">
+            <img src="./bus-logo.png" alt="" />
+          </Link>
         </div>
         <ul>
-          <li>
-            <p>Home</p>
-          </li>
-          <li>My Bookings</li>
-          <li>About</li>
-          <li>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="mybookings">My Bookings</NavLink>
+          <NavLink to="about">About Us</NavLink>
+          <Link to="login">
             <svg
-              className={styles.profileLogo}
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
+              className={styles.profileLogo}
             >
-              <path d="M12,19.2C9.5,19.2 7.29,17.92 6,16C6.03,14 10,12.9 12,12.9C14,12.9 17.97,14 18,16C16.71,17.92 14.5,19.2 12,19.2M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z" />
+              <title>login</title>
+              <path d="M11 7L9.6 8.4L12.2 11H2V13H12.2L9.6 15.6L11 17L16 12L11 7M20 19H12V21H20C21.1 21 22 20.1 22 19V5C22 3.9 21.1 3 20 3H12V5H20V19Z" />
             </svg>
-          </li>
+          </Link>
         </ul>
       </nav>
       {menuOpen && (
         <div className={styles.hambContainer} onClick={menuHandler}>
           <div className={styles.listItems} onClick={stopPropagation}>
             <hr />
-            <li>Home</li>
-            <hr />
-            <li>My Bookings</li>
-            <hr />
-            <li>About</li>
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="mybookings">My Bookings</NavLink>
+            <NavLink to="about">About Us</NavLink>
+
             <hr />
           </div>
         </div>

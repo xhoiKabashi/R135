@@ -6,7 +6,7 @@ function Footer() {
       <div className={styles.footerContainer}>
         <div className={styles.footerLogos}>
           <div>
-            <img src="./social-logo/facebook.png" alt="" />
+            <img id={styles.fb} src="./social-logo/facebook.png" alt="" />
           </div>
           <div>
             <img src="./social-logo/instagram.png" alt="" />

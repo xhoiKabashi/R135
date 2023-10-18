@@ -1,0 +1,24 @@
+/* TermsAndConditions.module.css */
+
+.termsContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.termsHeader {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.termsText {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 15px 0;
+}
+
+.sectionHeader {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+}
