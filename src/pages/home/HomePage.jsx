@@ -1,7 +1,9 @@
+import TextComponents from "../../components/textcomponents/TextComponents";
+
 function HomePage() {
   return (
     <>
-      <h2>Heyy</h2>
+      <TextComponents />
     </>
   );
 }

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./Footer.module.css";
 
 function Footer() {
@@ -17,16 +18,25 @@ function Footer() {
         </div>
         <div className={styles.footerContact}>
           <div>
-            <p>Privacy policy</p>
-            <p>General conditions</p>
+            <Link to="privacy">
+              <p>Privacy policy</p>
+            </Link>
+
+            <Link to="termsandconditions">
+              <p>General conditions</p>
+            </Link>
           </div>
           <div>
             <p>Need help?</p>
             <p>Contact Us</p>
           </div>
           <div>
-            <p>Who we are</p>
-            <p>Careers</p>
+            <Link to="whoarewe">
+              <p>Who we are</p>
+            </Link>
+            <Link to="workwithus">
+              <p>Careers</p>
+            </Link>
           </div>
         </div>
       </div>

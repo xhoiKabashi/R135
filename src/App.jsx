@@ -4,8 +4,14 @@ import Layout from "./pages/Layout";
 import About from "./pages/about/About";
 import MyBookings from "./pages/mybookings/MyBookings";
 import LoginPage from "./pages/login/LoginPage";
-import PageNotFound from "./pages/pagenotfound/PageNotFound";
 import TermsAndConditions from "./pages/terms/TermsAndConditions";
+import WhoAreWe from "./pages/whoarewe/WhoAreWe";
+import WorkWithUs from "./pages/workWithUs/WorkWithUs";
+
+import PageNotFound from "./pages/pagenotfound/PageNotFound";
+import Privacy from "./pages/privacy/Privacy";
+
+// Your component content
 
 function App() {
   return (
@@ -20,6 +26,10 @@ function App() {
             <Route path="about" element={<About />} />
             <Route path="login" element={<LoginPage />} />
             <Route path="termsandconditions" element={<TermsAndConditions />} />
+            <Route path="privacy" element={<Privacy />} />
+            <Route path="whoarewe" element={<WhoAreWe />} />
+            <Route path="workwithus" element={<WorkWithUs />} />
+
             <Route path="*" element={<PageNotFound />} />
           </Route>
         </Routes>
