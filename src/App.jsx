@@ -10,6 +10,7 @@ import WorkWithUs from "./pages/workWithUs/WorkWithUs";
 
 import PageNotFound from "./pages/pagenotfound/PageNotFound";
 import Privacy from "./pages/privacy/Privacy";
+import NeedHelp from "./pages/needHelp/NeedHelp";
 
 // Your component content
 
@@ -29,6 +30,7 @@ function App() {
             <Route path="privacy" element={<Privacy />} />
             <Route path="whoarewe" element={<WhoAreWe />} />
             <Route path="workwithus" element={<WorkWithUs />} />
+            <Route path="needhelp" element={<NeedHelp />} />
 
             <Route path="*" element={<PageNotFound />} />
           </Route>

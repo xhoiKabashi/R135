@@ -1,9 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import styles from "./Navbar.module.css"; // Import your CSS module
+import Icon from "@mdi/react";
+import { mdiHomeExportOutline } from "@mdi/js";
+import { mdiClipboardListOutline } from "@mdi/js";
+import { mdiInformationOutline } from "@mdi/js";
+import { mdiLogin } from "@mdi/js";
+import { mdiWindowClose } from "@mdi/js";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [menuOpen]);
 
   function menuHandler() {
     setMenuOpen(!menuOpen);
@@ -53,13 +71,54 @@ function Navbar() {
       </nav>
       {menuOpen && (
         <div className={styles.hambContainer} onClick={menuHandler}>
-          <div className={styles.listItems} onClick={stopPropagation}>
-            <hr />
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="mybookings">My Bookings</NavLink>
-            <NavLink to="about">About Us</NavLink>
+          <div className={styles.mobileNav} onClick={stopPropagation}>
+            <div className={styles.title}>
+              <h5 className={styles.noDisplay}>.</h5>
+              <h4>Menu</h4>
+              <Icon path={mdiWindowClose} size={1} onClick={menuHandler} />
+            </div>
 
-            <hr />
+            <div className={styles.listContainer}>
+              <ul>
+                <NavLink
+                  to="/"
+                  activeClassName={styles.activeLink}
+                  onClick={menuHandler}
+                >
+                  <li>
+                    <div>
+                      <Icon path={mdiHomeExportOutline} size={1} />
+                    </div>
+                    <p>Home</p>
+                  </li>
+                </NavLink>
+                <NavLink to="mybookings" onClick={menuHandler}>
+                  <li>
+                    <div>
+                      <Icon path={mdiClipboardListOutline} size={1} />
+                    </div>
+                    <p>My Bookings</p>
+                  </li>
+                </NavLink>
+                <NavLink to="about" onClick={menuHandler}>
+                  <li>
+                    <div>
+                      <Icon path={mdiInformationOutline} size={1} />
+                    </div>
+                    <p>About Us</p>
+                  </li>
+                </NavLink>
+                <NavLink to="login" onClick={menuHandler}>
+                  <li>
+                    <div>
+                      <Icon path={mdiLogin} size={1} />
+                    </div>
+                    <p>Login</p>
+                  </li>
+                </NavLink>
+              </ul>
+            </div>
+            <div className={styles.lang}>Lang</div>
           </div>
         </div>
       )}

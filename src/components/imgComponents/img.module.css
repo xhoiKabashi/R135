@@ -1,0 +1,14 @@
+.container {
+  overflow-clip-margin: content-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 408px;
+  background-color: #e3e3e3;
+}
+
+@media (max-width: 890px) {
+  .container {
+    height: 118px;
+  }
+}

@@ -1,4 +1,5 @@
 import TextComponents from "../../components/textcomponents/TextComponents";
+import Img from "../../components/imgComponents/Img";
 
 const datas = [
   {
@@ -147,7 +148,7 @@ const datas = [
 function TermsAndConditions() {
   return (
     <>
-      <img src="./banner/banner-terms.jpg" alt="stat working" />
+      <Img src={"./banner/banner-terms.jpg"} />
 
       {datas.map((data) => (
         <TextComponents

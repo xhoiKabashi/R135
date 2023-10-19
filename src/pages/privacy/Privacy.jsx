@@ -1,5 +1,6 @@
 // import styles from "./Privacy.module.css";
 import TextComponents from "../../components/textcomponents/TextComponents";
+import Img from "../../components/imgComponents/Img";
 
 const datas = [
   {
@@ -48,7 +49,7 @@ const datas = [
 function Privacy() {
   return (
     <>
-      <img src="./banner/banner-privacy.jpg" alt="stat working" />
+      <Img src={"./banner/banner-privacy.jpg"} />
 
       {datas.map((data) => (
         <TextComponents

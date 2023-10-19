@@ -1,4 +1,6 @@
 import TextComponents from "../../components/textcomponents/TextComponents";
+import Img from "../../components/imgComponents/Img";
+
 // import styles from "./WhoAreWe.module.css";
 
 const datas = [
@@ -39,7 +41,7 @@ const datas = [
 function WhoAreWe() {
   return (
     <>
-      <img src="./banner/banner-whoarewe.jpg" alt="staff working" />
+      <Img src={"./banner/banner-whoarewe.jpg"} />
 
       {datas.map((data) => (
         <TextComponents

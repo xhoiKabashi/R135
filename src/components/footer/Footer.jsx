@@ -27,12 +27,14 @@ function Footer() {
             </Link>
           </div>
           <div>
-            <p>Need help?</p>
+            <Link to="needhelp">
+              <p>Need help?</p>
+            </Link>
             <p>Contact Us</p>
           </div>
           <div>
             <Link to="whoarewe">
-              <p>Who we are</p>
+              <p>Who are we</p>
             </Link>
             <Link to="workwithus">
               <p>Careers</p>

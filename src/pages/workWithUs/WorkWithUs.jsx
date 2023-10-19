@@ -1,6 +1,8 @@
 // import styles from "./WorkWithUs.module.css";
+import Img from "../../components/imgComponents/Img";
 import TextComponents from "../../components/textcomponents/TextComponents";
-import styles from "./WorkWithUs.module.css";
+// import styles from "./WorkWithUs.module.css";
+
 const datas = [
   {
     secondTitle: "Join Our Team",
@@ -49,7 +51,7 @@ const datas = [
 function WorkWithUs() {
   return (
     <>
-      <img id={styles.img} src="./banner/banner-work.jpg" alt="stat working" />
+      <Img src={"./banner/banner-work.jpg"} />
       {datas.map((data) => (
         <TextComponents
           key={data.title}
