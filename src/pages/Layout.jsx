@@ -5,6 +5,8 @@ import Navbar from "../components/navbar/Navbar";
 import styles from "./Layout.module.css";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+// passsing props and sates using use contexts, in this case to change the language
+import MyProvider from "../MyProvider";
 
 function Layout() {
   // use effect and location are in order to rederect on top of the page after the navigation + to remeber last navigation
@@ -16,9 +18,12 @@ function Layout() {
 
   return (
     <div className={styles.container}>
-      <Navbar />
-      <Outlet />
-      <Footer />
+      <MyProvider>
+        <Navbar />
+        <Outlet />
+        <Footer />
+      </MyProvider>
+      ,
     </div>
   );
 }

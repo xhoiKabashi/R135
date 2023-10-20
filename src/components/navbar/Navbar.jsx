@@ -7,9 +7,16 @@ import { mdiClipboardListOutline } from "@mdi/js";
 import { mdiInformationOutline } from "@mdi/js";
 import { mdiLogin } from "@mdi/js";
 import { mdiWindowClose } from "@mdi/js";
+import { useContext } from "react";
+import Lang from "../../Context";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { data, setData } = useContext(Lang);
+
+  function HandleChange(e) {
+    setData();
+  }
 
   useEffect(() => {
     if (menuOpen) {
@@ -80,11 +87,7 @@ function Navbar() {
 
             <div className={styles.listContainer}>
               <ul>
-                <NavLink
-                  to="/"
-                  activeClassName={styles.activeLink}
-                  onClick={menuHandler}
-                >
+                <NavLink to="/" onClick={menuHandler}>
                   <li>
                     <div>
                       <Icon path={mdiHomeExportOutline} size={1} />
@@ -118,7 +121,19 @@ function Navbar() {
                 </NavLink>
               </ul>
             </div>
-            <div className={styles.lang}>Lang</div>
+            <div className={styles.lang}>
+              <select
+                name=""
+                id=""
+                value={data}
+                onChange={(e) => HandleChange(e.target.value)}
+              >
+                <option value="eng">Eng</option>
+                <option value="sq">Sq</option>
+                <option value="ita">Ita</option>
+                <option value="de">De</option>
+              </select>
+            </div>
           </div>
         </div>
       )}
