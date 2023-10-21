@@ -14,7 +14,7 @@ function LangDropDown() {
 
   function handleFlagClick(flagValue) {
     if (flagValue.includes("it")) {
-      setData("it");
+      setData("ita");
     } else if (flagValue.includes("de")) {
       setData("de");
     } else if (flagValue.includes("al")) {
@@ -33,7 +33,7 @@ function LangDropDown() {
     <>
       <div className={styles.container}>
         {imgArray.map((flag, index) => (
-          <div key={uuidv4()} style={{ display: show ? "none" : "flex" }}>
+          <div key={uuidv4()} style={{ display: !show ? "none" : "flex" }}>
             <img
               src={flag}
               key={uuidv4()}
@@ -43,7 +43,7 @@ function LangDropDown() {
           </div>
         ))}
 
-        <div style={{ display: !show ? "none" : "flex" }}>
+        <div style={{ display: show ? "none" : "flex" }}>
           <FontAwesomeIcon
             icon={faLanguage}
             flip
