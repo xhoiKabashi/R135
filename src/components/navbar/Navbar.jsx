@@ -22,7 +22,7 @@ function Navbar() {
 
   if (data === "de") {
     text = de;
-  } else if (data === "it") {
+  } else if (data === "ita") {
     text = it;
   } else if (data === "sq") {
     text = sq;
