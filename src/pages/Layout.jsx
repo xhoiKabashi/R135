@@ -23,7 +23,6 @@ function Layout() {
         <Outlet />
         <Footer />
       </MyProvider>
-      ,
     </div>
   );
 }

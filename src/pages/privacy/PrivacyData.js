@@ -175,3 +175,8 @@ export const de = [
     thirdPara: "Adresse: [Ihre Reiseagentur Adresse, Stadt, Albanien]",
   },
 ];
+
+export const itImg = "./banner/privacy/privacy-it.jpg";
+export const deImg = "./banner/privacy/privacy-de.jpg";
+export const sqImg = "./banner/privacy/privacy-sq.jpg";
+export const engImg = "./banner/privacy/privacy-eng.jpg";

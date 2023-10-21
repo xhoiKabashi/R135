@@ -138,3 +138,8 @@ export const sq = [
     thirdPara: "Faleminderit që na zgjodhët si partnerin tuaj të udhëtimit.",
   },
 ];
+
+export const itImg = "./banner/whoarewe/whoarewe-it.jpg";
+export const deImg = "./banner/whoarewe/whoarewe-de.jpg";
+export const sqImg = "./banner/whoarewe/whoarewe-sq.jpg";
+export const engImg = "./banner/whoarewe/whoarewe-eng.jpg";

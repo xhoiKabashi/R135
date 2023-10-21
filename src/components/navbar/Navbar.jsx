@@ -1,22 +1,37 @@
 import { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
-import styles from "./Navbar.module.css"; // Import your CSS module
+import styles from "./Navbar.module.css";
 import Icon from "@mdi/react";
+// those are for  getin the Icones
 import { mdiHomeExportOutline } from "@mdi/js";
 import { mdiClipboardListOutline } from "@mdi/js";
 import { mdiInformationOutline } from "@mdi/js";
 import { mdiLogin } from "@mdi/js";
 import { mdiWindowClose } from "@mdi/js";
+
 import { useContext } from "react";
 import Lang from "../../Context";
+import { sq, eng, de, it } from "./NavBarData";
+import LangDropDown from "../dropdown/LangDropDown";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { data, setData } = useContext(Lang);
 
-  function HandleChange(e) {
-    setData();
+  let text;
+
+  if (data === "de") {
+    text = de;
+  } else if (data === "it") {
+    text = it;
+  } else if (data === "sq") {
+    text = sq;
+  } else {
+    text = eng;
   }
+  // function HandleChange(e) {
+  //   setData(e);
+  // }
 
   useEffect(() => {
     if (menuOpen) {
@@ -56,13 +71,13 @@ function Navbar() {
         </div>
         <ul>
           <NavLink to="/">
-            <p className={styles.para}>Home</p>
+            <p className={styles.para}>{text.home}</p>
           </NavLink>
           <NavLink to="mybookings">
-            <p className="para">My Bookings</p>
+            <p className="para">{text.bookings}</p>
           </NavLink>
           <NavLink to="about">
-            <p>About Us</p>
+            <p>{text.about}</p>
           </NavLink>
           <Link to="login">
             <svg
@@ -92,7 +107,7 @@ function Navbar() {
                     <div>
                       <Icon path={mdiHomeExportOutline} size={1} />
                     </div>
-                    <p>Home</p>
+                    <p>{text.home}</p>
                   </li>
                 </NavLink>
                 <NavLink to="mybookings" onClick={menuHandler}>
@@ -100,7 +115,7 @@ function Navbar() {
                     <div>
                       <Icon path={mdiClipboardListOutline} size={1} />
                     </div>
-                    <p>My Bookings</p>
+                    <p>{text.bookings}</p>
                   </li>
                 </NavLink>
                 <NavLink to="about" onClick={menuHandler}>
@@ -108,7 +123,7 @@ function Navbar() {
                     <div>
                       <Icon path={mdiInformationOutline} size={1} />
                     </div>
-                    <p>About Us</p>
+                    <p>{text.about}</p>
                   </li>
                 </NavLink>
                 <NavLink to="login" onClick={menuHandler}>
@@ -116,23 +131,13 @@ function Navbar() {
                     <div>
                       <Icon path={mdiLogin} size={1} />
                     </div>
-                    <p>Login</p>
+                    <p>{text.login}</p>
                   </li>
                 </NavLink>
               </ul>
             </div>
             <div className={styles.lang}>
-              <select
-                name=""
-                id=""
-                value={data}
-                onChange={(e) => HandleChange(e.target.value)}
-              >
-                <option value="eng">Eng</option>
-                <option value="sq">Sq</option>
-                <option value="ita">Ita</option>
-                <option value="de">De</option>
-              </select>
+              <LangDropDown />
             </div>
           </div>
         </div>

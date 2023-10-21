@@ -1,7 +1,23 @@
 import { Link } from "react-router-dom";
 import styles from "./Footer.module.css";
+import { sq, eng, it, de } from "./FooterData";
+import { useContext } from "react";
+import Lang from "../../Context";
 
 function Footer() {
+  const { data } = useContext(Lang);
+  let text;
+
+  if (data === "ita") {
+    text = it;
+  } else if (data === "sq") {
+    text = sq;
+  } else if (data === "de") {
+    text = de;
+  } else {
+    text = eng;
+  }
+
   return (
     <>
       <div className={styles.footerContainer}>
@@ -19,25 +35,25 @@ function Footer() {
         <div className={styles.footerContact}>
           <div>
             <Link to="privacy">
-              <p>Privacy policy</p>
+              <p>{text.privacy}</p>
             </Link>
 
             <Link to="termsandconditions">
-              <p>General conditions</p>
+              <p>{text.terms}</p>
             </Link>
           </div>
           <div>
             <Link to="needhelp">
-              <p>Need help?</p>
+              <p>{text.help}</p>
             </Link>
-            <p>Contact Us</p>
+            <p>{text.contact}</p>
           </div>
           <div>
             <Link to="whoarewe">
-              <p>Who are we</p>
+              <p>{text.about}</p>
             </Link>
             <Link to="workwithus">
-              <p>Careers</p>
+              <p>{text.work}</p>
             </Link>
           </div>
         </div>

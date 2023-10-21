@@ -576,3 +576,8 @@ export const de = [
       "10.3 Geltendes Recht, Diese Bedingungen unterliegen albanischem Recht, und Streitigkeiten werden in Albanien beigelegt.",
   },
 ];
+
+export const itImg = "./banner/terms/terms-it.jpg";
+export const deImg = "./banner/terms/terms-de.jpg";
+export const sqImg = "./banner/terms/terms-sq.jpg";
+export const engImg = "./banner/terms/terms-eng.jpg";

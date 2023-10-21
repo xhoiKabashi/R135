@@ -6,12 +6,11 @@
   font-family: "Open Sans", sans-serif;
 }
 
-#list li {
+.list li {
   list-style: outside;
-  /* You can use 'lower-roman' or other styles based on your preference */
 }
 
-#list {
+.list {
   display: flex;
   flex-direction: column;
   gap: 10px;

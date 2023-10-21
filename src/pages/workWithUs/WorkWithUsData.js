@@ -177,3 +177,8 @@ export const de = [
     thirdPara: "",
   },
 ];
+
+export const itImg = "./banner/work/work-it.jpg";
+export const deImg = "./banner/work/work-de.jpg";
+export const sqImg = "./banner/work/work-sq.jpg";
+export const engImg = "./banner/work/work-eng.jpg";

@@ -136,3 +136,8 @@ export const de = [
       "Unsere Website bietet eine Live-Chat-Funktion für Echtzeitunterstützung. Sie können mit unseren Support-Agenten chatten und sofortige Hilfe bei Ihren Anliegen erhalten, während Sie unsere Plattform durchsuchen.",
   },
 ];
+
+export const itImg = "./banner/help/help-it.jpg";
+export const deImg = "./banner/help/help-de.jpg";
+export const sqImg = "./banner/help/help-sq.jpg";
+export const engImg = "./banner/help/help-eng.jpg";
