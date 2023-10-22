@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import Img from "../../components/imgComponents/Img";
 import { useContext } from "react";
-import Lang from "../../Context";
+import Lang from "../../Context"; 
 import { ita, sq, eng, de, itImg, deImg, sqImg, engImg } from "./TermsData";
 
 function TermsAndConditions() {
