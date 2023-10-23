@@ -12,12 +12,12 @@
 
 h1 {
   font-size: 24px;
-  color: var(--textColor);
+  color: black;
 }
 
 p {
   font-size: 16px;
-  color: var(--textColor);
+  color: black;
 }
 
 audio {

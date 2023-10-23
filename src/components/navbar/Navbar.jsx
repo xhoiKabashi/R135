@@ -8,6 +8,7 @@ import { mdiClipboardListOutline } from "@mdi/js";
 import { mdiInformationOutline } from "@mdi/js";
 import { mdiLogin } from "@mdi/js";
 import { mdiWindowClose } from "@mdi/js";
+import { mdiContactsOutline } from "@mdi/js";
 
 import { useContext } from "react";
 import Lang from "../../Context";
@@ -79,6 +80,9 @@ function Navbar() {
           <NavLink to="about">
             <p>{text.about}</p>
           </NavLink>
+          <NavLink to="contact">
+            <p>{text.contact}</p>
+          </NavLink>
           <Link to="login">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -124,6 +128,14 @@ function Navbar() {
                       <Icon path={mdiInformationOutline} size={1} />
                     </div>
                     <p>{text.about}</p>
+                  </li>
+                </NavLink>
+                <NavLink to="contact" onClick={menuHandler}>
+                  <li>
+                    <div>
+                      <Icon path={mdiContactsOutline} size={1} />
+                    </div>
+                    <p>{text.contact}</p>
                   </li>
                 </NavLink>
                 <NavLink to="login" onClick={menuHandler}>

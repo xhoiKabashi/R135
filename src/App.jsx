@@ -7,7 +7,7 @@ import LoginPage from "./pages/login/LoginPage";
 import TermsAndConditions from "./pages/terms/TermsAndConditions";
 import WhoAreWe from "./pages/whoarewe/WhoAreWe";
 import WorkWithUs from "./pages/workWithUs/WorkWithUs";
-
+import Contact from "./pages/contact/Contact";
 import PageNotFound from "./pages/pagenotfound/PageNotFound";
 import Privacy from "./pages/privacy/Privacy";
 import NeedHelp from "./pages/needHelp/NeedHelp";
@@ -25,6 +25,7 @@ function App() {
             <Route index element={<HomePage />} />
             <Route path="mybookings" element={<MyBookings />} />
             <Route path="about" element={<About />} />
+            <Route path="contact" element={<Contact />} />
             <Route path="login" element={<LoginPage />} />
             <Route path="termsandconditions" element={<TermsAndConditions />} />
             <Route path="privacy" element={<Privacy />} />
