@@ -23,5 +23,5 @@ export const de = {
 };
 
 export const radio = {
-  channel: "https://live.top-media.al/mmr",
+  channel: "https://cp1.sednastream.com/proxy/radioone94?mp=/stream",
 };
