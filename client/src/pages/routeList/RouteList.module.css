@@ -1,0 +1,25 @@
+.route {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+}
+
+.route p {
+  margin: 0;
+}
+
+.route button {
+  background-color: #0074cc;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.selected {
+  background-color: #f0f0f0;
+}
+
+.selectedFlights {
+  margin-top: 20px;
+}

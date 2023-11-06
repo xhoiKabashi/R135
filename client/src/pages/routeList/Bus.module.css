@@ -1,0 +1,17 @@
+.flight {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+}
+
+.flight p {
+  margin: 0;
+}
+
+.flight button {
+  background-color: #0074cc;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
