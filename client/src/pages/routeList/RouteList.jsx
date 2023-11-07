@@ -30,6 +30,7 @@ const RouteList = () => {
 
   const handleFlightSelect = (flight) => {
     setSelectedFlights([...selectedFlights, flight]);
+    console.log(flight);
   };
 
   return (
@@ -62,7 +63,6 @@ const RouteList = () => {
           )}
         </div>
       ))}
-
       <h2 className={styles.selectedFlights}>Selected Flights</h2>
       <ul>
         {selectedFlights.map((flight, index) => (

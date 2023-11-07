@@ -1,6 +1,6 @@
 import { useEffect, useContext } from "react";
 import TextComponents from "../../components/textcomponents/TextComponents";
-import Chatbot from "../../components/chatbot/Chatbot";
+// import Chatbot from "../../components/chatbot/Chatbot";
 import { AuthContext } from "../../Context";
 import Cookies from "universal-cookie";
 
@@ -20,7 +20,7 @@ function HomePage() {
   return (
     <>
       <TextComponents />
-      <Chatbot />
+      {/* <Chatbot /> */}
     </>
   );
 }

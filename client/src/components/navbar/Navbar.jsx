@@ -32,9 +32,6 @@ function Navbar() {
   } else {
     text = eng;
   }
-  // function HandleChange(e) {
-  //   setData(e);
-  // }
 
   useEffect(() => {
     if (menuOpen) {
@@ -99,7 +96,7 @@ function Navbar() {
           <div className={styles.mobileNav} onClick={stopPropagation}>
             <div className={styles.title}>
               <h5 className={styles.noDisplay}>.</h5>
-              <h4>Menu</h4>
+              <p>Menu</p>
               <Icon path={mdiWindowClose} size={1} onClick={menuHandler} />
             </div>
 
@@ -113,7 +110,11 @@ function Navbar() {
                     <p>{text.home}</p>
                   </li>
                 </NavLink>
-                <NavLink to="mybookings" onClick={menuHandler}>
+                <NavLink
+                  to="mybookings"
+                  onClick={menuHandler}
+                  className={!user ? styles.none : ""}
+                >
                   <li>
                     <div>
                       <Icon path={mdiClipboardListOutline} size={1} />
@@ -129,7 +130,11 @@ function Navbar() {
                     <p>{text.about}</p>
                   </li>
                 </NavLink>
-                <NavLink to="login" onClick={menuHandler}>
+                <NavLink
+                  to="login"
+                  onClick={menuHandler}
+                  className={user ? styles.none : ""}
+                >
                   <li>
                     <div>
                       <Icon path={mdiLogin} size={1} />
