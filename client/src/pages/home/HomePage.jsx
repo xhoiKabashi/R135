@@ -12,7 +12,7 @@ function HomePage() {
   const [departure, setDeparture] = useState("");
   const [arrival, setArrival] = useState("");
   const [numberOfPassenger, setNumberOfPassenger] = useState("");
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState("12/23/2024");
 
   const token = cookies.get("TOKEN");
   const { setUser } = useContext(AuthContext);

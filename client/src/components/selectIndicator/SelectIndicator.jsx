@@ -80,9 +80,10 @@ export default function SelectIndicator({
               <input
                 type="date"
                 name="selectedDate"
-                value={date}
+                value="2023-12-31"
+                min="2023-11-11"
+                max="2024-12-31"
                 onChange={(e) => setDate(e.target.value)}
-                placeholder="Date"
                 className={styles.dateInput}
               />
             </div>

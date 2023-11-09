@@ -42,6 +42,7 @@
   border-radius: 10px;
   padding-left: 10px;
   border: solid 2px #dde2e8;
+  background-color: white;
 }
 
 .dateInput {
@@ -49,7 +50,7 @@
   height: 37px;
   border: 1px solid #c4c4c4;
   border-radius: 5px;
-  background-color: #fff;
+  background-color: white;
 }
 
 [type="date"] {
