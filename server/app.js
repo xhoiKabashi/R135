@@ -3,11 +3,13 @@ const auth = require("./auth");
 const app = express();
 const bodyParser = require("body-parser");
 const dbConnect = require("./db/dbConnect");
-const User = require("./db/userModel");
+const Flight = require("./db/Flight");
+const Airplane = require("./db/Seat");
+const Route = require("./db/Route");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
-const Route = require("./models/route");
+const User = require("./db/userModel");
 
 // Body parser configuration
 app.use(bodyParser.json());
@@ -155,48 +157,75 @@ app.get("/user-data", auth, async (req, res) => {
   }
 });
 
-// routes/routes.js
+// POST a new route
 
-// Add a new route to get bus details and seat availability based on departure time
+// Create a new route
+app.post("/api/routes", (req, res) => {
+  const { origin, destination } = req.body;
 
-// app.get("/bus-details/:departureTime", async (req, res) => {
-//   const { departureTime } = req.params;
+  const route = new Route({
+    origin,
+    destination,
+  });
 
-//   try {
-//     // Find the route with the matching departure time
-//     const route = await Route.findOne({
-//       "buses.time": departureTime,
-//     });
+  route
+    .save()
+    .then((result) => {
+      res.status(201).json(result);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).json({ error: "Error creating route" });
+    });
+});
 
-//     if (!route) {
-//       return res.status(404).json({ message: "Bus not found" });
-//     }
+// Create a new airplane
+app.post("/api/airplanes", (req, res) => {
+  const { name, totalSeats } = req.body;
 
-//     // Extract the specific bus details based on departure time
-//     const bus = route.buses.find((b) => b.time === departureTime);
+  const airplane = new Airplane({
+    name,
+    totalSeats,
+  });
 
-//     // You can also check the availability of seats in this route if you have seat data.
-//     // Add seat availability information here.
+  airplane
+    .save()
+    .then((result) => {
+      res.status(201).json(result);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).json({ error: "Error creating airplane" });
+    });
+});
 
-//     res.json({
-//       route: {
-//         origin: route.origin,
-//         destination: route.destination,
-//       },
-//       bus: {
-//         time: bus.time,
-//         seats: bus.seats, // Include the actual seat availability here
-//       },
-//     });
-//   } catch (err) {
-//     console.error(err);
-//     res.status(500).json({ message: "Server Error" });
-//   }
-// });
+// Create a new flight
+app.post("/api/flights", (req, res) => {
+  const { route, airplane, departureTime, arrivalTime, price } = req.body;
 
-app.get("/api/routes", async (req, res) => {
-  const routes = await Route.find({});
-  res.json(routes);
+  const seats = [];
+  for (let i = 1; i <= airplane.totalSeats; i++) {
+    seats.push({ number: i, booked: false });
+  }
+
+  const flight = new Flight({
+    route,
+    airplane,
+    departureTime,
+    arrivalTime,
+    seats,
+    price,
+  });
+
+  flight
+    .save()
+    .then((result) => {
+      res.status(201).json(result);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).json({ error: "Error creating flight" });
+    });
 });
 
 module.exports = app;
