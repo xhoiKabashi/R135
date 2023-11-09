@@ -24,7 +24,8 @@ function App() {
           {/* Contains Navbar and footer */}
           <Route path="/" element={<Layout />}>
             {/* Home page will be the main page */}
-            <Route index path="home" element={<HomePage />} />
+            <Route index path="/" element={<HomePage />} />
+            <Route path="home" element={<HomePage />} />
             <Route path="routes" element={<RouteList />} />
             <Route path="mybookings" element={<MyBookings />} />
             <Route path="about" element={<About />} />

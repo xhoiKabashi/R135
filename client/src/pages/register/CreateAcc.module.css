@@ -1,28 +1,36 @@
 .container {
   display: flex;
-  height: 100vh;
-  justify-content: space-around;
-  background-color: var(--navColor);
+  justify-content: center;
+  background-color: white;
   padding-top: 30px;
   font-family: var(--mainFont);
 }
 
+.img {
+  background-color: #333;
+  background-image: url(./public/login.jpg);
+  width: 500px;
+  height: 500px;
+  background-size: cover;
+
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
 .loginContainer {
-  width: 400px;
-  height: 70%;
-  border-radius: 5%;
+  width: 500px;
+  height: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
-  border: 1px solid var(--secondTextColor);
   background-color: var(--textColor);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
-  padding-bottom: 15px;
+  background-color: #f1f5f9;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
 
-.loginContainer h2 {
+.loginContainer h3 {
   text-align: center;
   color: #333;
   text-transform: uppercase;
@@ -30,17 +38,17 @@
 
 .loginContainer form {
   width: 300px;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .formGroup {
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   width: 100%;
 }
 
 .formGroup label {
   display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
   color: #333;
 }
 
@@ -48,7 +56,7 @@
   padding: 10px 0;
   border: 1px solid #b0adad;
   border-radius: 10px;
-  font-size: 16px;
+  font-size: 14px;
   width: 100%;
   text-indent: 10px;
 }
@@ -62,15 +70,30 @@ form button {
   border-radius: 10px;
   font-size: 18px;
   cursor: pointer;
+  margin-bottom: 25px;
 }
 
 .link {
-  margin-top: 10px;
+  /* margin-top: 10px; */
   text-decoration: none;
   color: var(--navColor);
   font-size: larger;
+  margin-bottom: 35px;
 }
 input::placeholder {
   /* Adjust the position using padding, margin, or positioning properties */
   padding-left: 10px;
+}
+
+@media (max-width: 767px) {
+  .img {
+    display: none;
+  }
+  .container {
+    width: 100%;
+  }
+  .loginContainer {
+    background-color: white;
+    margin-top: 100px;
+  }
 }

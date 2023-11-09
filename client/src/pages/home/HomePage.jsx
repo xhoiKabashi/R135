@@ -1,13 +1,14 @@
 import { useEffect, useContext, useState } from "react";
+import Icon from "@mdi/react";
 import { AuthContext } from "../../Context";
 import Cookies from "universal-cookie";
 import styles from "./HomePage.module.css";
 import SelectIndicator from "../../components/selectIndicator/SelectIndicator";
+import { mdiCarSearchOutline } from "@mdi/js";
 
 const cookies = new Cookies();
 
 function HomePage() {
-  const [swap, setSwap] = useState(false);
   const [departure, setDeparture] = useState("");
   const [arrival, setArrival] = useState("");
   const [numberOfPassenger, setNumberOfPassenger] = useState("");
@@ -33,13 +34,20 @@ function HomePage() {
         <div>
           <SelectIndicator
             setDeparture={setDeparture}
+            departure={departure}
             setArrival={setArrival}
+            arrival={arrival}
+            setNumberOfPassenger={setNumberOfPassenger}
+            numberOfPassenger={numberOfPassenger}
+            date={date}
+            setDate={setDate}
           />
         </div>
-        {/* <DatePicker
-          setDate={setDate}
-          setNumberOfPassenger={setNumberOfPassenger}
-        /> */}
+        <button className={styles.button}>
+          <Icon path={mdiCarSearchOutline} size={1} />
+          Search
+        </button>
+        <div className={styles.hr}></div>
       </div>
     </>
   );

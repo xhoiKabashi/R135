@@ -1,24 +1,33 @@
 .container {
   display: flex;
-  height: 100vh;
-  justify-content: space-around;
-  background-color: var(--navColor);
+  justify-content: center;
+  background-color: white;
   padding-top: 30px;
   font-family: var(--mainFont);
 }
 
+.img {
+  background-color: #333;
+  background-image: url(./public/login.jpg);
+  width: 500px;
+  height: 500px;
+  background-size: cover;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
 .loginContainer {
-  width: 400px;
-  height: 50%;
-  border-radius: 5%;
+  width: 500px;
+  height: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  border: 1px solid var(--secondTextColor);
   background-color: var(--textColor);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
+  background-color: #f1f5f9;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .loginContainer h2 {
@@ -26,9 +35,13 @@
   color: #333;
   text-transform: uppercase;
 }
-
+.loginContainer h5 {
+  margin-bottom: 10px;
+}
 .loginContainer form {
   width: 300px;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .formGroup {
@@ -74,4 +87,16 @@ form button {
 input::placeholder {
   /* Adjust the position using padding, margin, or positioning properties */
   padding-left: 10px;
+}
+@media (max-width: 767px) {
+  .img {
+    display: none;
+  }
+  .container {
+    width: 100%;
+  }
+  .loginContainer {
+    background-color: white;
+    margin-top: 100px;
+  }
 }

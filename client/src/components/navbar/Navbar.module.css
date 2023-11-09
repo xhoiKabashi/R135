@@ -62,6 +62,7 @@ ul li:nth-child(3) {
 .hamb {
   display: none;
   width: 100px;
+  cursor: pointer;
 }
 
 /* display the menu for mobile version */

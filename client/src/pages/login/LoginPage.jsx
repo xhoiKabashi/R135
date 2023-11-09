@@ -60,6 +60,7 @@ function LoginPage() {
   if (!login) {
     return (
       <div className={styles.container}>
+        <div className={styles.img}></div>
         <div className={styles.loginContainer}>
           <h5 className={styles.text}>Have an account?</h5>
           <h2 className={styles.text}>Login</h2>

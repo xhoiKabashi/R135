@@ -37,7 +37,7 @@ function CreateAcc() {
   return (
     <div className={styles.container}>
       <div className={styles.loginContainer}>
-        <h2 className={styles.text}>Create account</h2>
+        <h3 className={styles.text}>Create account</h3>
 
         <form onSubmit={(e) => handleSubmit(e)}>
           <div className={styles.formGroup}>
@@ -88,11 +88,12 @@ function CreateAcc() {
           ) : (
             <p className={styles.errorText}>You Are Not Registered</p>
           )}
+          <Link to="/login" className={styles.link}>
+            Login
+          </Link>
         </form>
-        <Link to="/login" className={styles.link}>
-          Login
-        </Link>
       </div>
+      <div className={styles.img}></div>
     </div>
   );
 }
