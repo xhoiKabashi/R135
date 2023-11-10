@@ -17,14 +17,33 @@
 .container {
   display: flex;
   flex-direction: column;
+  width: 100%;
   gap: 70px;
-  height: 100vh;
-  background-color: #f1f5f9;
 }
-
+.page {
+  background-color: #f1f5f9;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
 .hr {
   background-color: #aeaeaf;
-  margin: auto;
+  margin: 0 auto;
   height: 1px;
   width: 90%;
+  margin: 30px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 90%;
+  gap: 20px;
+}
+
+.mediaCard {
+  padding: 90px 0;
 }

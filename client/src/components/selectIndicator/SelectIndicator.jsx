@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import styles from "./SelectIndicator.module.css";
 import Icon from "@mdi/react";
