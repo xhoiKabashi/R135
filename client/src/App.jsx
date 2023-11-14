@@ -13,6 +13,7 @@ import Privacy from "./pages/privacy/Privacy";
 import NeedHelp from "./pages/needHelp/NeedHelp";
 import Radio from "./pages/radio/Radio";
 import RouteList from "./pages/routeList/RouteList";
+import Contact from "./pages/contact/Contact";
 
 // Your component content
 
@@ -37,6 +38,7 @@ function App() {
             <Route path="workwithus" element={<WorkWithUs />} />
             <Route path="needhelp" element={<NeedHelp />} />
             <Route path="radio" element={<Radio />} />
+            <Route path="contact" element={<Contact />} />
 
             <Route path="*" element={<PageNotFound />} />
           </Route>

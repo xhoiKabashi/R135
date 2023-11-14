@@ -10,6 +10,11 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 const User = require("./db/userModel");
+const axios = require("axios");
+
+// This
+
+//
 
 // Body parser configuration
 app.use(bodyParser.json());
@@ -30,6 +35,32 @@ app.use((req, res, next) => {
   );
   next();
 });
+
+// sdfsdsdfdsdffsd
+const ACRCLOUD_API_KEY = "IGIeWulKfDGA6fFmcvdG0l0bHlCFnbtiCfzRcTGO";
+const ACRCLOUD_ACCESS_KEY = "f55f7e6f54003637b7f7a1307d13d3ce";
+
+app.post("/recognize", async (req, res) => {
+  try {
+    const url = req.body.url;
+
+    const response = await axios.post(
+      "'https://identify-eu-west-1.acrcloud.com",
+      {
+        url,
+        access_key: ACRCLOUD_ACCESS_KEY,
+        access_secret: ACRCLOUD_API_KEY,
+      }
+    );
+
+    res.json(response.data);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Error recognizing song");
+  }
+});
+
+// sfdsdfsdfdsfsdfds
 
 app.post("/register", (request, response) => {
   // Hash the password

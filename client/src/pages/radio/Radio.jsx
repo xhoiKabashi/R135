@@ -1,48 +1,32 @@
 import styles from "./Radio.module.css";
-import { useContext, useRef, useState } from "react";
+import { useContext } from "react";
 import Lang from "../../Context";
 import { en, al, it, de, radio } from "./RadioData.js";
+import AudioPlayer from "react-h5-audio-player";
+import "react-h5-audio-player/lib/styles.css";
 
 function MyRadioPlayer() {
-  const [volume, setVolume] = useState(1);
-  const audioRef = useRef();
+  const { dataa } = useContext(Lang);
 
-  const handleVolumeChange = (e) => {
-    const newVolume = parseFloat(e.target.value);
-    setVolume(newVolume);
-    audioRef.current.volume = newVolume;
-  };
-
-  const { data } = useContext(Lang);
   let languageData;
 
-  if (data === "ita") {
+  if (dataa === "ita") {
     languageData = it;
-  } else if (data === "sq") {
+  } else if (dataa === "sq") {
     languageData = al;
-  } else if (data === "de") {
+  } else if (dataa === "de") {
     languageData = de;
   } else {
     languageData = en;
   }
 
+  console.log(languageData);
+
   return (
-    <div>
-      <div className={styles.container}>
-        <h1>{languageData.title}</h1>
-        <p>{languageData.para}</p>
-        <audio ref={audioRef} controls>
-          <source src={radio.channel} type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio>
-        <input
-          type="range"
-          min="0"
-          max="1"
-          step="0.01"
-          value={volume}
-          onChange={handleVolumeChange}
-        />
+    <div className={styles.container}>
+      <h2>Enhance your trip with the finest music!</h2>
+      <div className={styles.audio}>
+        <AudioPlayer autoPlay src={radio.channel} showJumpControls={false} />
       </div>
     </div>
   );

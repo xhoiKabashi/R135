@@ -51,7 +51,9 @@ function Footer() {
             <Link to="needhelp">
               <p>{text.help}</p>
             </Link>
-            <p>{text.contact}</p>
+            <Link to="contact">
+              <p>{text.contact}</p>
+            </Link>
           </div>
           <div>
             <Link to="whoarewe">
