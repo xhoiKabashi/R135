@@ -3,20 +3,14 @@ const auth = require("./auth");
 const app = express();
 const bodyParser = require("body-parser");
 const dbConnect = require("./db/dbConnect");
-const Flight = require("./db/Flight");
-const Airplane = require("./db/Seat");
-const Route = require("./db/Route");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 const User = require("./db/userModel");
 const axios = require("axios");
+const busModels = require("./models/busModels");
+const BookingDetail = require("./models/bookingDetail");
 
-// This
-
-//
-
-// Body parser configuration
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -35,32 +29,6 @@ app.use((req, res, next) => {
   );
   next();
 });
-
-// sdfsdsdfdsdffsd
-const ACRCLOUD_API_KEY = "IGIeWulKfDGA6fFmcvdG0l0bHlCFnbtiCfzRcTGO";
-const ACRCLOUD_ACCESS_KEY = "f55f7e6f54003637b7f7a1307d13d3ce";
-
-app.post("/recognize", async (req, res) => {
-  try {
-    const url = req.body.url;
-
-    const response = await axios.post(
-      "'https://identify-eu-west-1.acrcloud.com",
-      {
-        url,
-        access_key: ACRCLOUD_ACCESS_KEY,
-        access_secret: ACRCLOUD_API_KEY,
-      }
-    );
-
-    res.json(response.data);
-  } catch (error) {
-    console.log(error);
-    res.status(500).send("Error recognizing song");
-  }
-});
-
-// sfdsdfsdfdsfsdfds
 
 app.post("/register", (request, response) => {
   // Hash the password
@@ -188,75 +156,132 @@ app.get("/user-data", auth, async (req, res) => {
   }
 });
 
-// POST a new route
+///////////////////////////////
+// API endpoint to get available tickets
 
-// Create a new route
-app.post("/api/routes", (req, res) => {
-  const { origin, destination } = req.body;
+app.post("/api/routes", async (req, res) => {
+  try {
+    const {
+      from,
+      to,
+      date,
+      bus,
+      fromTime,
+      toTime,
+      totalSeats,
+      passengers,
+      price,
+    } = req.body;
 
-  const route = new Route({
-    origin,
-    destination,
-  });
-
-  route
-    .save()
-    .then((result) => {
-      res.status(201).json(result);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(500).json({ error: "Error creating route" });
+    const newBus = new busModels({
+      from,
+      to,
+      date,
+      bus,
+      fromTime,
+      toTime,
+      totalSeats,
+      passengers,
+      price,
     });
-});
 
-// Create a new airplane
-app.post("/api/airplanes", (req, res) => {
-  const { name, totalSeats } = req.body;
+    // Save the flight
+    await newBus.save();
 
-  const airplane = new Airplane({
-    name,
-    totalSeats,
-  });
-
-  airplane
-    .save()
-    .then((result) => {
-      res.status(201).json(result);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(500).json({ error: "Error creating airplane" });
-    });
-});
-
-// Create a new flight
-app.post("/api/flights", (req, res) => {
-  const { route, airplane, departureTime, arrivalTime, price } = req.body;
-
-  const seats = [];
-  for (let i = 1; i <= airplane.totalSeats; i++) {
-    seats.push({ number: i, booked: false });
+    res.json({ success: true, bus: newBus });
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
   }
+});
 
-  const flight = new Flight({
-    route,
-    airplane,
-    departureTime,
-    arrivalTime,
-    seats,
-    price,
-  });
+app.get("/api/routes", async (req, res) => {
+  try {
+    const { from, to, date } = req.query;
 
-  flight
-    .save()
-    .then((result) => {
-      res.status(201).json(result);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(500).json({ error: "Error creating flight" });
+    // Build a query object based on the provided parameters
+    const query = {};
+    if (from) {
+      query.from = from;
+    }
+    if (to) {
+      query.to = to;
+    }
+    if (date) {
+      query.date = date;
+    }
+
+    // Use the query object to find flights that match the search criteria
+    const routes = await busModels.find(query);
+
+    res.json({ success: true, routes });
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.get("/api/routes/:busId", async (req, res) => {
+  try {
+    const bus = await busModels.findById(req.params.busId);
+    res.json({ success: true, bus });
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.get("/api/tickets", async (req, res) => {
+  try {
+    const availableTickets = await BookingDetail.find({});
+    res.json(availableTickets);
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+// API endpoint to book a ticket
+app.post("/api/bookings", async (req, res) => {
+  try {
+    const {
+      userId,
+      from,
+      to,
+      date,
+      bus,
+      fromTime,
+      toTime,
+      group,
+      passengerCount,
+      passengers,
+      price,
+    } = req.body;
+
+    // Check if the user exists
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    // Create a new booking
+    const newBooking = new BookingDetail({
+      user: userId,
+      from,
+      to,
+      date,
+      bus,
+      fromTime,
+      toTime,
+      group,
+      passengerCount,
+      passengers,
+      price,
     });
+
+    // Save the booking
+    await newBooking.save();
+
+    res.json({ success: true, booking: newBooking });
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
 });
 
 module.exports = app;
