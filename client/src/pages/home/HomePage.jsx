@@ -8,22 +8,26 @@ import { mdiCarSearchOutline } from "@mdi/js";
 import MediaCard from "../../components/mediaCard/MediaCard.jsx";
 import { en, sq, de, it } from "./home.data.js";
 import Lang from "../../Context";
+import axios from "axios";
+import useBusDataStore from "../../store/Store.jsx";
+import { useNavigate } from "react-router-dom";
+import Stepper from "../../components/stepper/Stepper.jsx";
 
 const cookies = new Cookies();
 
 function HomePage() {
   const { data } = useContext(Lang);
-  const [departure, setDeparture] = useState("");
-  const [arrival, setArrival] = useState("");
+  const [departure, setDeparture] = useState("Tirana");
+  const [arrival, setArrival] = useState("Pogradec");
   const [numberOfPassenger, setNumberOfPassenger] = useState("");
-  const [date, setDate] = useState("12/23/2024");
+  const [date, setDate] = useState("2023-12-30");
+  const busStore = useBusDataStore();
+  const activeStep = useBusDataStore((state) => state.activeStep);
+  const setActiveStep = useBusDataStore((state) => state.setActiveStep);
+  const navigate = useNavigate();
 
   const token = cookies.get("TOKEN");
   const { setUser } = useContext(AuthContext);
-  console.log(departure);
-  console.log(arrival);
-  console.log(date);
-  console.log(numberOfPassenger);
 
   let languageData;
 
@@ -42,10 +46,28 @@ function HomePage() {
     if (token) {
       setUser(true);
     }
-  }, [token, setUser]);
+  }, [token, setUser, departure, arrival]);
+
+  async function handleSearch(e) {
+    e.preventDefault();
+    setActiveStep(1);
+
+    try {
+      const response = await axios.get(
+        `http://localhost:3000/api/routes?from=${departure}&to=${arrival}`
+      );
+      busStore.setBusData(response.data.routes);
+    } catch (error) {
+      console.error("Error while searching:", error);
+    } finally {
+      console.log("Completed");
+      navigate("/home/booking");
+    }
+  }
 
   return (
     <div className={styles.page}>
+      <Stepper />
       <div className={styles.container}>
         <div>
           <SelectIndicator
@@ -59,7 +81,7 @@ function HomePage() {
             setDate={setDate}
           />
         </div>
-        <button className={styles.button}>
+        <button className={styles.button} onClick={(e) => handleSearch(e)}>
           <Icon path={mdiCarSearchOutline} size={1} />
           Search
         </button>
@@ -81,4 +103,5 @@ function HomePage() {
     </div>
   );
 }
+
 export default HomePage;

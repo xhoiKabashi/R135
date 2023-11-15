@@ -5,6 +5,7 @@ import styles from "./About.module.css";
 import { en, sq, it, de } from "./about.data";
 import Lang from "../../Context";
 import { v4 as uuidv4 } from "uuid";
+import useBusDataStore from "../../store/store";
 
 const cookies = new Cookies();
 
@@ -12,6 +13,10 @@ function About() {
   const token = cookies.get("TOKEN");
   const { setUser } = useContext(AuthContext);
   const { data } = useContext(Lang);
+  const busStore = useBusDataStore();
+  const busData = busStore.busData;
+
+  console.log(busData.length);
 
   let textdata;
 
@@ -25,7 +30,6 @@ function About() {
     textdata = it;
   }
 
-  console.log(textdata);
   useEffect(() => {
     if (token) {
       // Set the user as authenticated

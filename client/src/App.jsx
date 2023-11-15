@@ -14,6 +14,7 @@ import NeedHelp from "./pages/needHelp/NeedHelp";
 import Radio from "./pages/radio/Radio";
 import RouteList from "./pages/routeList/RouteList";
 import Contact from "./pages/contact/Contact";
+import BookingTicket from "./pages/bookingTicket/BookingTicket";
 
 // Your component content
 
@@ -27,6 +28,8 @@ function App() {
             {/* Home page will be the main page */}
             <Route index path="/" element={<HomePage />} />
             <Route path="home" element={<HomePage />} />
+            <Route path="home/booking" element={<BookingTicket />} /> 
+
             <Route path="routes" element={<RouteList />} />
             <Route path="mybookings" element={<MyBookings />} />
             <Route path="about" element={<About />} />

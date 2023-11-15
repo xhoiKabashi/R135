@@ -34,9 +34,9 @@ export default function SelectIndicator({
                 onChange={(e) => setDeparture(e.target.value)}
                 className={styles.inputField}
               >
-                <option value="New York">New York</option>
-                <option value="Los Angeles">Los Angeles</option>
-                <option value="Chicago">Chicago</option>
+                <option value="Tirana">Tirana</option>
+                <option value="Pogradec">Pogradec</option>
+                <option value="Korca">Korca</option>
               </select>
             </div>
             <div className={styles.input}>
@@ -50,9 +50,9 @@ export default function SelectIndicator({
                 onChange={(e) => setArrival(e.target.value)}
                 className={styles.inputField}
               >
-                <option value="London">London</option>
-                <option value="Paris">Paris</option>
-                <option value="Tokyo">Tokyo</option>
+                <option value="Pogradec">Pogradec</option>
+                <option value="Tirana">Tirana</option>
+                <option value="Korca">Korca</option>
               </select>
             </div>
           </div>
@@ -81,7 +81,7 @@ export default function SelectIndicator({
               <input
                 type="date"
                 name="selectedDate"
-                value="2023-12-31"
+                value={date}
                 min="2023-11-11"
                 max="2024-12-31"
                 onChange={(e) => setDate(e.target.value)}

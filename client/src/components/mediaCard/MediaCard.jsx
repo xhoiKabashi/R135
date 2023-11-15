@@ -8,8 +8,6 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
 export default function MediaCard({ image, text, title, buttonText }) {
-  console.log(text);
-  console.log(title);
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
