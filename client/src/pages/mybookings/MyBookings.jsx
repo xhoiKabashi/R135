@@ -4,11 +4,13 @@ import axios from "axios";
 import { Navigate } from "react-router-dom";
 import Cookies from "universal-cookie";
 import { AuthContext } from "../../Context";
+import useBusDataStore from "../../store/Store";
 
 const cookies = new Cookies();
 
 function MyBookings() {
   const [userData, setUserData] = useState(null);
+  const { setUserID } = useBusDataStore();
 
   const { setUser } = useContext(AuthContext);
   const token = cookies.get("TOKEN");
@@ -31,6 +33,7 @@ function MyBookings() {
           const userData = response.data;
 
           setUserData(userData);
+          setUserID(userData._id);
           setUser(true);
         }
       } catch (error) {

@@ -1,0 +1,101 @@
+.container {
+  background-color: #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Open Sans", sans-serif;
+}
+.flexContainer {
+  display: flex;
+}
+
+.loginContainer {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--textColor);
+  text-align: center;
+  background-color: #f1f5f9;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.loginContainer h3 {
+  text-align: center;
+  color: #333;
+  text-transform: uppercase;
+}
+
+.loginContainer form {
+  width: 300px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.formGroup {
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+.formGroup label {
+  display: block;
+  color: #333;
+}
+
+.formGroup input {
+  padding: 10px 0;
+  border: 1px solid #b0adad;
+  border-radius: 10px;
+  font-size: 14px;
+  width: 100%;
+  text-indent: 10px;
+}
+
+form button {
+  width: 100%;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-bottom: 25px;
+}
+
+.link {
+  /* margin-top: 10px; */
+  text-decoration: none;
+  color: var(--navColor);
+  font-size: larger;
+  margin-bottom: 35px;
+}
+input::placeholder {
+  /* Adjust the position using padding, margin, or positioning properties */
+  padding-left: 10px;
+}
+
+@media (max-width: 767px) {
+  .img {
+    display: none;
+  }
+  .container {
+    width: 100%;
+  }
+  .loginContainer {
+    background-color: white;
+    margin-top: 20px;
+  }
+  .flexContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+  }
+  .loginContainer {
+    width: auto;
+    height: auto;
+  }
+}

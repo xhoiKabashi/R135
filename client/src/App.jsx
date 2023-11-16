@@ -14,7 +14,9 @@ import NeedHelp from "./pages/needHelp/NeedHelp";
 import Radio from "./pages/radio/Radio";
 import RouteList from "./pages/routeList/RouteList";
 import Contact from "./pages/contact/Contact";
-import BookingTicket from "./pages/bookingTicket/BookingTicket";
+import Select from "./pages/select/Select";
+import BookTicket from "./pages/bookTicket/BookTicket";
+import PayTicket from "./pages/bookTicket/payTicket/PayTicket";
 
 // Your component content
 
@@ -28,7 +30,10 @@ function App() {
             {/* Home page will be the main page */}
             <Route index path="/" element={<HomePage />} />
             <Route path="home" element={<HomePage />} />
-            <Route path="home/booking" element={<BookingTicket />} /> 
+            {/* Select / reserv and pay ticket */}
+            <Route path="select-ticket" element={<Select />} />
+            <Route path="select" element={<BookTicket />} />
+            <Route path="pay-ticket" element={<PayTicket />} />
 
             <Route path="routes" element={<RouteList />} />
             <Route path="mybookings" element={<MyBookings />} />

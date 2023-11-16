@@ -11,7 +11,6 @@ import Lang from "../../Context";
 import axios from "axios";
 import useBusDataStore from "../../store/Store.jsx";
 import { useNavigate } from "react-router-dom";
-import Stepper from "../../components/stepper/Stepper.jsx";
 
 const cookies = new Cookies();
 
@@ -22,8 +21,6 @@ function HomePage() {
   const [numberOfPassenger, setNumberOfPassenger] = useState("");
   const [date, setDate] = useState("2023-12-30");
   const busStore = useBusDataStore();
-  const activeStep = useBusDataStore((state) => state.activeStep);
-  const setActiveStep = useBusDataStore((state) => state.setActiveStep);
   const navigate = useNavigate();
 
   const token = cookies.get("TOKEN");
@@ -50,7 +47,6 @@ function HomePage() {
 
   async function handleSearch(e) {
     e.preventDefault();
-    setActiveStep(1);
 
     try {
       const response = await axios.get(
@@ -61,13 +57,12 @@ function HomePage() {
       console.error("Error while searching:", error);
     } finally {
       console.log("Completed");
-      navigate("/home/booking");
+      navigate("/select-ticket");
     }
   }
 
   return (
     <div className={styles.page}>
-      <Stepper />
       <div className={styles.container}>
         <div>
           <SelectIndicator

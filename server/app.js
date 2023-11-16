@@ -241,38 +241,32 @@ app.get("/api/tickets", async (req, res) => {
 app.post("/api/bookings", async (req, res) => {
   try {
     const {
-      userId,
+      name,
+      lastName,
+      age,
+      email,
       from,
       to,
       date,
-      bus,
       fromTime,
       toTime,
-      group,
-      passengerCount,
-      passengers,
       price,
+      userID,
     } = req.body;
-
-    // Check if the user exists
-    const user = await User.findById(userId);
-    if (!user) {
-      return res.status(404).json({ error: "User not found" });
-    }
 
     // Create a new booking
     const newBooking = new BookingDetail({
-      user: userId,
+      name,
+      lastName,
+      age,
+      email,
       from,
       to,
       date,
-      bus,
       fromTime,
       toTime,
-      group,
-      passengerCount,
-      passengers,
       price,
+      userID,
     });
 
     // Save the booking

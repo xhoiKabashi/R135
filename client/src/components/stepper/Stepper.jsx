@@ -5,14 +5,14 @@ import StepButton from "@mui/joy/StepButton";
 import StepIndicator from "@mui/joy/StepIndicator";
 import Check from "@mui/icons-material/Check";
 
-const steps = ["Destination", "Ticket", "Reserve"];
+const steps = ["Destination", "Details", "Reserve"];
 
 export default function ButtonStepper() {
   const activeStep = useBusDataStore((state) => state.activeStep);
   const setActiveStep = useBusDataStore((state) => state.setActiveStep);
 
   return (
-    <Stepper sx={{ width: "99%" }}>
+    <Stepper sx={{ width: "90%" }}>
       {steps.map((step, index) => (
         <Step
           key={step}

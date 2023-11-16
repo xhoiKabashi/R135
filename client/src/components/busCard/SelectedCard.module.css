@@ -1,0 +1,64 @@
+/* SelectedCard.module.css */
+.card {
+  width: 320px;
+  max-width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 20px;
+  background-color: #fff;
+
+  font-family: "Open Sans", sans-serif;
+}
+
+.cardHeader {
+  background-color: var(--navColor);
+  color: #fff;
+  padding: 10px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.cardContent {
+  padding: 10px;
+}
+
+.cardFooter {
+  background-color: #f1f1f1;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.price {
+  color: #fff;
+  background-color: var(--navColor);
+  border: none;
+  padding: 10px 20px;
+
+  width: 100%;
+}
+
+/* Add any additional styling for other elements if needed */
+.padding {
+  /* padding-left: 10px; */
+  margin-right: 20px;
+}
+
+.userDetails {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.userDetails p {
+  align-items: center;
+  display: flex;
+  height: 10px;
+}
+.cardHeader h4 {
+  margin: 5px;
+}

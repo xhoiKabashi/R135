@@ -1,14 +1,27 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import useBusDataStore from "../../store/Store";
-import styles from "./BookingTicket.module.css";
+import styles from "./Select.module.css";
 import BusCard from "../../components/busCard/BusCard";
-import { img } from "./BookingTicketData";
+import { img } from "./SelectData";
 import Stepper from "../../components/stepper/Stepper";
+import { useNavigate } from "react-router-dom";
 
 function BookingTicket() {
   const busStore = useBusDataStore();
-  const [selectedBus, setSelectedBus] = useState(null);
-  console.log(img);
+  const setBusSelection = useBusDataStore();
+  const { activeStep, setActiveStep } = useBusDataStore();
+  const navigate = useNavigate();
+
+  // Set activeStep to 1 when the component mounts or returns to the page
+  useEffect(() => {
+    if (activeStep !== 0) {
+      setActiveStep(0);
+    }
+  }, [activeStep, setActiveStep]);
+
+  function handleNavigation() {
+    navigate("/select");
+  }
 
   let image;
 
@@ -21,14 +34,22 @@ function BookingTicket() {
   } else if (busStore.busData[0].to === "Erseka") {
     image = img.korca;
   }
-  //   console.log(busData);
 
   return (
     <div className={styles.container}>
       <Stepper />
+      <h2 className={styles.title}>Select Trip</h2>
+
       <div className={styles.cards}>
         {busStore.busData.map((bus) => (
-          <div key={bus._id} onClick={() => setSelectedBus(bus)}>
+          <div
+            key={bus._id}
+            onClick={() => {
+              setBusSelection.setBusSelection(bus);
+              handleNavigation();
+              setActiveStep(1);
+            }}
+          >
             {/* Render the bus information here */}
             <BusCard
               busFrom={bus.from}
@@ -45,16 +66,6 @@ function BookingTicket() {
       </div>
       {/* <img src={img.pogradec} alt="" /> */}
       <div className={styles.hr}></div>
-
-      {/* Render the details of the selected bus */}
-      {selectedBus && (
-        <div>
-          <h2>Selected Bus Details</h2>
-          <p>From: {selectedBus.from}</p>
-          <p>To: {selectedBus.to}</p>
-          {/* Include other details as needed */}
-        </div>
-      )}
     </div>
   );
 }
