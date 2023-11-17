@@ -83,10 +83,11 @@ input::placeholder {
   }
   .container {
     width: 100%;
+    background-color: white;
   }
   .loginContainer {
-    background-color: white;
     margin-top: 20px;
+    background-color: white;
   }
   .flexContainer {
     display: flex;

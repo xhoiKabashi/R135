@@ -22,8 +22,6 @@ function BookTicket() {
   const [age, setAge] = useState("");
   const navigate = useNavigate();
 
-  console.log(typeof userID);
-
   const from = busSelection.from;
   const to = busSelection.to;
   const date = busSelection.date;

@@ -278,4 +278,17 @@ app.post("/api/bookings", async (req, res) => {
   }
 });
 
+app.get("/api/bookings", async (req, res) => {
+  try {
+    const { userID } = req.query;
+
+    // Corrected variable name from query to userID
+    const tickets = await BookingDetail.find({ userID });
+
+    res.json({ success: true, tickets });
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 module.exports = app;

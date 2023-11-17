@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import styles from "./SelectedCard.module.css";
 
@@ -13,12 +14,16 @@ import {
 } from "react-icons/ci";
 
 export default function TicketCard({
+  name,
+  lastName,
   busFrom,
   busTo,
-  //   busDate,
+  date,
+  age,
   busFromTime,
-  busToTime,
-  busPrice,
+  toTime,
+  price,
+  id,
 }) {
   return (
     <div className={styles.card}>
@@ -27,16 +32,16 @@ export default function TicketCard({
         <span className={styles.userDetails}>
           <p>
             <IoTicketOutline className={styles.padding} />
-            ID:1114446
+            ID:{id}
           </p>
         </span>
 
         <span className={styles.userDetails}>
           <p>
             <CiUser className={styles.padding} />
-            Xhoi Kabashi
+            {name} {lastName}
           </p>
-          <p>Age: 35</p>
+          <p>Age: {age}</p>
         </span>
         <span className={styles.userDetails}>
           <MdOutlineAirlineSeatReclineNormal />
@@ -62,13 +67,13 @@ export default function TicketCard({
         </p>
         <p>
           <CiTimer className={styles.padding} />
-          <strong>Arrival:</strong> {busToTime}
+          <strong>Arrival:</strong> {toTime}
         </p>
       </div>
       <div className={styles.cardFooter}>
-        <h4 className={styles.price} disabled>
-          Cost: {busPrice} Lek
-        </h4>
+        <p className={styles.price} disabled>
+          To be paid: {price} Lek
+        </p>
       </div>
     </div>
   );
