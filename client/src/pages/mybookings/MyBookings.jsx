@@ -15,13 +15,15 @@ import TicketCard from "../../components/busCard/TicketCard";
 const cookies = new Cookies();
 
 function MyBookings() {
-  const [userData, setUserData] = useState(null);
+  const [userData, setUserData] = useState({
+    id: null,
+    data: null,
+  });
   const { setUserID } = useBusDataStore();
-  const [id, setId] = useState(null);
+  const [ticket, setTicket] = useState(null);
 
   const { setUser } = useContext(AuthContext);
   const token = cookies.get("TOKEN");
-  const [ticket, setTicket] = useState();
 
   // logout the user
   const logout = () => {
@@ -29,7 +31,7 @@ function MyBookings() {
     cookies.remove("TOKEN", { path: "/" });
     setUser(false);
   };
-  // get user data and token
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -41,46 +43,37 @@ function MyBookings() {
           });
           const userData = response.data;
 
-          setUserData(userData);
+          setUserData({ ...userData, id: userData._id, data: userData });
           setUserID(userData._id);
-          setId(userData._id);
           setUser(true);
+
+          const ticketResponse = await axios.get(
+            `http://localhost:3000/api/bookings?userID=${userData._id}`
+          );
+          const useTicket = ticketResponse.data;
+          setTicket(useTicket.tickets);
         }
       } catch (error) {
-        console.error("Error fetching user data:", error);
+        console.error("Error fetching user data or ticket data:", error);
       }
     };
 
     fetchData();
   }, [token]);
 
-  useEffect(() => {
-    const fetchTicket = async () => {
-      try {
-        const ticket = await axios.get(
-          `http://localhost:3000/api/bookings?userID=${id}`
-        );
-        const useTicket = ticket.data;
-        setTicket(useTicket.tickets);
-      } catch (error) {
-        throw new Error();
-      }
-    };
-    //
-    fetchTicket();
-  }, [id]);
-
   if (!token) {
     // Redirect the user to the login page if not authenticated
     return <Navigate to="/login" />;
   }
 
-  if (ticket) {
+  if (ticket !== null) {
     // Display user data once retrieved
     return (
       <div className={styles.container}>
         <div className={styles.header}>
-          {userData && <h4 className={styles.title}>Hi, {userData.name}!</h4>}
+          {userData.data && (
+            <h4 className={styles.title}>Hi, {userData.data.name}!</h4>
+          )}
           <h2> My Profile</h2>
           <div className={styles.buttonDiv}>
             <button
@@ -119,6 +112,7 @@ function MyBookings() {
                     age={ticket.age}
                     price={ticket.price}
                     id={ticket._id.slice(0, 10)}
+                    fullID={ticket._id}
                   />
                 </div>
               ))}
@@ -138,7 +132,6 @@ function MyBookings() {
   }
 
   // You can show a loading message while fetching data
-  return <div>Loading...</div>;
 }
 
 export default MyBookings;

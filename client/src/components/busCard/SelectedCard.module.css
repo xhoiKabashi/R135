@@ -62,3 +62,8 @@
 .cardHeader h4 {
   margin: 5px;
 }
+
+.qr {
+  display: flex;
+  justify-content: space-between;
+}

@@ -52,7 +52,7 @@ function LoginPage() {
   if (login) {
     return (
       <>
-        <Navigate to={"/mybookings"} />
+        <Navigate to={"/home"} />
       </>
     );
   }
@@ -73,6 +73,7 @@ function LoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter email"
+                required
               />
             </div>
             <div className={styles.formGroup}>
@@ -83,6 +84,8 @@ function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"
+                autoComplete="current-password"
+                required
               />
             </div>
             <button type="submit">Login</button>

@@ -1,8 +1,11 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import styles from "./SelectIndicator.module.css";
-import Icon from "@mdi/react";
-import { mdiBusMarker, mdiCalendarRange, mdiAccountSupervisor } from "@mdi/js";
+
+import { CiLocationOn, CiCalendarDate } from "react-icons/ci";
+import { VscPersonAdd } from "react-icons/vsc";
+import useBusDataStore from "../../store/Store.jsx";
+import { useState } from "react";
 
 // ... (import statements remain the same)
 
@@ -10,12 +13,18 @@ export default function SelectIndicator({
   setDeparture,
   departure,
   setArrival,
-  date,
-  setDate,
   arrival,
   setNumberOfPassenger,
   numberOfPassenger,
 }) {
+  const { ticketDate, setTicketData } = useBusDataStore();
+
+  const handleDateChange = (e) => {
+    const selectedDate = e.target.value;
+
+    setTicketData(selectedDate);
+  };
+  console.log(ticketDate);
   return (
     <>
       <div className={styles.cover}></div>
@@ -25,7 +34,7 @@ export default function SelectIndicator({
           <div>
             <div className={styles.input}>
               <div>
-                <Icon path={mdiBusMarker} size={1} />
+                <CiLocationOn />
               </div>
               <select
                 id="departureSelect"
@@ -33,15 +42,17 @@ export default function SelectIndicator({
                 value={departure}
                 onChange={(e) => setDeparture(e.target.value)}
                 className={styles.inputField}
+                required
               >
                 <option value="Tirana">Tirana</option>
                 <option value="Pogradec">Pogradec</option>
                 <option value="Korca">Korca</option>
+                <option value="Elbasan">Elbasan</option>
               </select>
             </div>
             <div className={styles.input}>
               <div>
-                <Icon path={mdiBusMarker} size={1} />
+                <CiLocationOn />
               </div>
               <select
                 id="arrivalSelect"
@@ -49,17 +60,19 @@ export default function SelectIndicator({
                 value={arrival}
                 onChange={(e) => setArrival(e.target.value)}
                 className={styles.inputField}
+                required
               >
                 <option value="Pogradec">Pogradec</option>
                 <option value="Tirana">Tirana</option>
                 <option value="Korca">Korca</option>
+                <option value="Elbasan">Elbasan</option>
               </select>
             </div>
           </div>
           <div>
             <div className={styles.input}>
               <div>
-                <Icon path={mdiAccountSupervisor} size={1} />
+                <VscPersonAdd />
               </div>
               <select
                 name="numberOfPassengers"
@@ -67,6 +80,7 @@ export default function SelectIndicator({
                 onChange={(e) => setNumberOfPassenger(e.target.value)}
                 placeholder="Number of Passengers"
                 className={styles.inputField}
+                required
               >
                 <option value={1}>1</option>
                 <option value={2}>2</option>
@@ -76,16 +90,17 @@ export default function SelectIndicator({
             </div>
             <div className={styles.input}>
               <div>
-                <Icon path={mdiCalendarRange} size={1} />
+                <CiCalendarDate />
               </div>
               <input
                 type="date"
                 name="selectedDate"
-                value={date}
+                value={ticketDate}
                 min="2023-11-11"
                 max="2024-12-31"
-                onChange={(e) => setDate(e.target.value)}
+                onChange={(e) => handleDateChange(e)}
                 className={styles.dateInput}
+                required
               />
             </div>
           </div>

@@ -4,6 +4,8 @@ import styles from "./SelectedCard.module.css";
 
 import { MdOutlineAirlineSeatReclineNormal } from "react-icons/md";
 import { IoTicketOutline } from "react-icons/io5";
+import useBusDataStore from "../../store/Store";
+import QRCode from "react-qr-code";
 
 import {
   CiCalendarDate,
@@ -24,11 +26,17 @@ export default function TicketCard({
   toTime,
   price,
   id,
+  fullID,
 }) {
+  const { ticketDate } = useBusDataStore();
+
   return (
     <div className={styles.card}>
       <div className={styles.cardHeader}>
-        <h4>Ticket Details</h4>
+        <div className={styles.qr}>
+          <h4>Ticket Details</h4>
+          <QRCode value={`http://localhost:5173/ticket/${fullID}`} size="60" />
+        </div>
         <span className={styles.userDetails}>
           <p>
             <IoTicketOutline className={styles.padding} />
@@ -59,7 +67,7 @@ export default function TicketCard({
         </p>
         <p>
           <CiCalendarDate className={styles.padding} />
-          <strong>Date:</strong> 15/05/2022
+          <strong>Date:</strong> {ticketDate}
         </p>
         <p>
           <CiTimer className={styles.padding} />

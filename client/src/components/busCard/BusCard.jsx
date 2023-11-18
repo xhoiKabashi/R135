@@ -5,18 +5,18 @@ import Card from "@mui/joy/Card";
 import CardContent from "@mui/joy/CardContent";
 import CardOverflow from "@mui/joy/CardOverflow";
 import Chip from "@mui/joy/Chip";
-// import Link from "@mui/joy/Link";
+import useBusDataStore from "../../store/Store";
 import Typography from "@mui/joy/Typography";
 
 export default function BusCard({
   busFrom,
   busTo,
-  busDate,
   busFromTime,
   busToTime,
   busPrice,
   busImage,
 }) {
+  const { ticketDate } = useBusDataStore();
   return (
     <Card sx={{ width: 320, maxWidth: "100%", boxShadow: "lg" }}>
       <CardOverflow>
@@ -35,7 +35,7 @@ export default function BusCard({
           textColor="text.primary"
           overlay="true"
         >
-          {busDate} Date
+          {ticketDate} Date
         </Typography>
 
         <Typography

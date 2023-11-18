@@ -1,16 +1,20 @@
 /* eslint-disable react/prop-types */
 import styles from "./SelectedCard.module.css";
+import useBusDataStore from "../../store/Store";
 
 import { CiCalendarDate, CiTimer, CiLocationOn } from "react-icons/ci";
 
 export default function BusCard({
   busFrom,
   busTo,
-  //   busDate,
+
   busFromTime,
   busToTime,
   busPrice,
 }) {
+  const { ticketDate } = useBusDataStore();
+  console.log(ticketDate);
+
   return (
     <div className={styles.card}>
       <div className={styles.cardHeader}>
@@ -27,7 +31,7 @@ export default function BusCard({
         </p>
         <p>
           <CiCalendarDate className={styles.padding} />
-          <strong>Date:</strong> 15/05/2022
+          <strong>Date:</strong> {ticketDate}
         </p>
         <p>
           <CiTimer className={styles.padding} />

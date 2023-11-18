@@ -84,6 +84,7 @@ function BookTicket() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Enter Name"
+                required
               />
             </div>
             <div className={styles.formGroup}>
@@ -94,6 +95,7 @@ function BookTicket() {
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
                 placeholder="Enter Last Name"
+                required
               />
             </div>
             <div className={styles.formGroup}>
@@ -104,6 +106,7 @@ function BookTicket() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter Email"
+                required
               />
             </div>
             <div className={styles.formGroup}>
@@ -114,6 +117,7 @@ function BookTicket() {
                 value={age}
                 onChange={(e) => setAge(e.target.value)}
                 placeholder="Age"
+                required
               />
             </div>
             <div className={styles.formGroup}>

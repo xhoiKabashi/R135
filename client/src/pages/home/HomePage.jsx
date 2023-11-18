@@ -11,7 +11,7 @@ import Lang from "../../Context";
 import axios from "axios";
 import useBusDataStore from "../../store/Store.jsx";
 import { useNavigate } from "react-router-dom";
-
+import SnackBar from "../../components/modial/Snakebar.jsx";
 const cookies = new Cookies();
 
 function HomePage() {
@@ -22,6 +22,8 @@ function HomePage() {
   const [date, setDate] = useState("2023-12-30");
   const busStore = useBusDataStore();
   const navigate = useNavigate();
+  // to open snakebar
+  const [open, setOpen] = useState(false);
 
   const token = cookies.get("TOKEN");
   const { setUser } = useContext(AuthContext);
@@ -63,6 +65,7 @@ function HomePage() {
 
   return (
     <div className={styles.page}>
+      <SnackBar setOpen={setOpen} open={open} />
       <div className={styles.container}>
         <div>
           <SelectIndicator
@@ -76,10 +79,18 @@ function HomePage() {
             setDate={setDate}
           />
         </div>
-        <button className={styles.button} onClick={(e) => handleSearch(e)}>
-          <Icon path={mdiCarSearchOutline} size={1} />
-          Search
-        </button>
+
+        {!token ? (
+          <button className={styles.button} onClick={() => setOpen(!open)}>
+            <Icon path={mdiCarSearchOutline} size={1} />
+            Search
+          </button>
+        ) : (
+          <button className={styles.button} onClick={(e) => handleSearch(e)}>
+            <Icon path={mdiCarSearchOutline} size={1} />
+            Search
+          </button>
+        )}
       </div>
       <div className={styles.hr}></div>
       <div className={styles.cards}>

@@ -11,6 +11,7 @@ function CreateAcc() {
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [register, setRegister] = useState(false);
+  const [registerError, setRegisterError] = useState(null); // New state for error
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,7 +31,12 @@ function CreateAcc() {
         setRegister(true);
       })
       .catch((error) => {
-        error = new Error();
+        if (error.response && error.response.status === 500) {
+          // Server error (status code 500)
+          setRegisterError(
+            "An error occurred. Please enter a new email address."
+          );
+        }
       });
   };
 
@@ -48,6 +54,7 @@ function CreateAcc() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Enter Name"
+              required
             />
           </div>
           <div className={styles.formGroup}>
@@ -58,6 +65,7 @@ function CreateAcc() {
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
               placeholder="Enter Last Name"
+              required
             />
           </div>
           <div className={styles.formGroup}>
@@ -68,6 +76,7 @@ function CreateAcc() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter Email"
+              required
             />
           </div>
           <div className={styles.formGroup}>
@@ -78,6 +87,8 @@ function CreateAcc() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
+              required
+              autoComplete="current-password"
             />
           </div>
           <button>Create account</button>
@@ -85,6 +96,8 @@ function CreateAcc() {
             <p className={styles.successText}>
               You Are Registered Successfully
             </p>
+          ) : registerError ? (
+            <p className={styles.errorText}>This email is already been used!</p>
           ) : (
             <p className={styles.errorText}>You Are Not Registered</p>
           )}
