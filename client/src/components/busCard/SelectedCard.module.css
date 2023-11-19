@@ -38,6 +38,7 @@
   background-color: var(--navColor);
   border: none;
   padding: 10px 20px;
+  display: flex;
 
   width: 100%;
 }
@@ -66,4 +67,14 @@
 .qr {
   display: flex;
   justify-content: space-between;
+}
+
+.pdf {
+  border-radius: 10px;
+  border: none;
+  font-size: large;
+  margin-left: 40px;
+  color: #fff;
+  background-color: var(--navColor);
+  cursor: pointer;
 }

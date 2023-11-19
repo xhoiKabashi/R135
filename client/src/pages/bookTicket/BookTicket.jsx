@@ -13,8 +13,8 @@ import { useNavigate } from "react-router-dom";
 const cookies = new Cookies();
 
 function BookTicket() {
-  const { busSelection } = useBusDataStore();
-  const { activeStep, setActiveStep } = useBusDataStore();
+  const { activeStep, setActiveStep, ticketDate, busSelection } =
+    useBusDataStore();
   const { userID } = useBusDataStore();
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -24,13 +24,15 @@ function BookTicket() {
 
   const from = busSelection.from;
   const to = busSelection.to;
-  const date = busSelection.date;
+  const date = ticketDate;
   const fromTime = busSelection.fromTime;
   const toTime = busSelection.toTime;
   const price = busSelection.price;
 
   const token = cookies.get("TOKEN");
   const { setUser } = useContext(AuthContext);
+
+  console.log(ticketDate);
 
   const handleSubmit = (e) => {
     e.preventDefault();

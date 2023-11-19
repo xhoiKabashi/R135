@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import HomePage from "./pages/home/HomePage";
 import Layout from "./pages/layout/Layout";
 import About from "./pages/about/About";
@@ -17,6 +18,7 @@ import Contact from "./pages/contact/Contact";
 import Select from "./pages/select/Select";
 import BookTicket from "./pages/bookTicket/BookTicket";
 import PayTicket from "./pages/bookTicket/payTicket/PayTicket";
+
 // import Admin from "./admin/Admin";
 import TicketDetails from "./admin/TicketDetails";
 
@@ -50,13 +52,9 @@ function App() {
             <Route path="radio" element={<Radio />} />
             <Route path="contact" element={<Contact />} />
 
-            {/* <Route path="admin" element={<Admin />} /> */}
-            <Switch>
-              <Route path="/ticket/:ticketId" component={TicketDetails} />
-            </Switch>
-
             <Route path="*" element={<PageNotFound />} />
           </Route>
+          <Route path="/ticket/:fullID" element={<TicketDetails />} />
         </Routes>
       </BrowserRouter>
     </>

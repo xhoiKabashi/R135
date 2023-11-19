@@ -99,23 +99,27 @@ function MyBookings() {
                 maxWidth: 300,
               }}
             >
-              {ticket.map((ticket) => (
-                <div key={ticket._id}>
-                  <TicketCard
-                    name={ticket.name}
-                    lastName={ticket.lastName}
-                    busFrom={ticket.from}
-                    busTo={ticket.to}
-                    date={ticket.date}
-                    busFromTime={ticket.fromTime}
-                    toTime={ticket.toTime}
-                    age={ticket.age}
-                    price={ticket.price}
-                    id={ticket._id.slice(0, 10)}
-                    fullID={ticket._id}
-                  />
-                </div>
-              ))}
+              {ticket && ticket.length > 0 ? (
+                ticket.map((booking) => (
+                  <div key={booking._id}>
+                    <TicketCard
+                      name={booking.name}
+                      lastName={booking.lastName}
+                      busFrom={booking.from}
+                      busTo={booking.to}
+                      date={booking.date}
+                      busFromTime={booking.fromTime}
+                      toTime={booking.toTime}
+                      age={booking.age}
+                      price={booking.price}
+                      id={booking._id.slice(0, 10)}
+                      fullID={booking._id}
+                    />
+                  </div>
+                ))
+              ) : (
+                <p>No active bookings</p>
+              )}
             </TabPanel>
             <TabPanel
               value={1}
@@ -123,7 +127,7 @@ function MyBookings() {
                 width: 300,
               }}
             >
-              <b>No</b> Bookings
+              {ticket && ticket.length === 0 && <p>No past bookings</p>}
             </TabPanel>
           </Tabs>
         </div>

@@ -7,8 +7,6 @@ import { VscPersonAdd } from "react-icons/vsc";
 import useBusDataStore from "../../store/Store.jsx";
 import { useState } from "react";
 
-// ... (import statements remain the same)
-
 export default function SelectIndicator({
   setDeparture,
   departure,
@@ -18,19 +16,20 @@ export default function SelectIndicator({
   numberOfPassenger,
 }) {
   const { ticketDate, setTicketData } = useBusDataStore();
+  const [todaysDate] = useState();
 
+  // setTicketData(todaysDate);
   const handleDateChange = (e) => {
     const selectedDate = e.target.value;
-
     setTicketData(selectedDate);
   };
-  console.log(ticketDate);
+
   return (
     <>
       <div className={styles.cover}></div>
       <div className={styles.container}>
         <div className={styles.title}>Low cost bus travel from just €5</div>
-        <div className={styles.datePicker}>
+        <form className={styles.datePicker}>
           <div>
             <div className={styles.input}>
               <div>
@@ -95,7 +94,7 @@ export default function SelectIndicator({
               <input
                 type="date"
                 name="selectedDate"
-                value={ticketDate}
+                value={todaysDate}
                 min="2023-11-11"
                 max="2024-12-31"
                 onChange={(e) => handleDateChange(e)}
@@ -104,7 +103,7 @@ export default function SelectIndicator({
               />
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </>
   );

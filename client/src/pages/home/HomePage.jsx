@@ -19,8 +19,9 @@ function HomePage() {
   const [departure, setDeparture] = useState("Tirana");
   const [arrival, setArrival] = useState("Pogradec");
   const [numberOfPassenger, setNumberOfPassenger] = useState("");
-  const [date, setDate] = useState("2023-12-30");
+
   const busStore = useBusDataStore();
+  const { ticketDate } = useBusDataStore();
   const navigate = useNavigate();
   // to open snakebar
   const [open, setOpen] = useState(false);
@@ -75,18 +76,24 @@ function HomePage() {
             arrival={arrival}
             setNumberOfPassenger={setNumberOfPassenger}
             numberOfPassenger={numberOfPassenger}
-            date={date}
-            setDate={setDate}
           />
         </div>
 
         {!token ? (
-          <button className={styles.button} onClick={() => setOpen(!open)}>
+          <button
+            className={styles.button}
+            onClick={() => setOpen(!open)}
+            disabled={!ticketDate}
+          >
             <Icon path={mdiCarSearchOutline} size={1} />
             Search
           </button>
         ) : (
-          <button className={styles.button} onClick={(e) => handleSearch(e)}>
+          <button
+            className={styles.button}
+            onClick={(e) => handleSearch(e)}
+            disabled={!ticketDate}
+          >
             <Icon path={mdiCarSearchOutline} size={1} />
             Search
           </button>

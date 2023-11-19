@@ -1,21 +1,17 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
+import React, { useRef } from "react";
 import styles from "./SelectedCard.module.css";
-
 import { MdOutlineAirlineSeatReclineNormal } from "react-icons/md";
 import { IoTicketOutline } from "react-icons/io5";
 import useBusDataStore from "../../store/Store";
 import QRCode from "react-qr-code";
+import { CiCalendarDate, CiTimer, CiLocationOn, CiUser } from "react-icons/ci";
+import { BsFiletypePdf } from "react-icons/bs";
 
-import {
-  CiCalendarDate,
-  CiTimer,
-  CiLocationOn,
-  CiUser,
-  // GiPassport,
-} from "react-icons/ci";
+import ReactToPrint from "react-to-print";
 
-export default function TicketCard({
+const TicketCard = ({
   name,
   lastName,
   busFrom,
@@ -27,15 +23,17 @@ export default function TicketCard({
   price,
   id,
   fullID,
-}) {
-  const { ticketDate } = useBusDataStore();
+}) => {
+  const { ticketDate, setTicketId } = useBusDataStore();
+
+  const componentRef = useRef();
 
   return (
-    <div className={styles.card}>
+    <div className={styles.card} ref={componentRef}>
       <div className={styles.cardHeader}>
         <div className={styles.qr}>
           <h4>Ticket Details</h4>
-          <QRCode value={`http://localhost:5173/ticket/${fullID}`} size="60" />
+          <QRCode value={`http://localhost:5173/ticket/${fullID}`} size={60} />
         </div>
         <span className={styles.userDetails}>
           <p>
@@ -67,7 +65,7 @@ export default function TicketCard({
         </p>
         <p>
           <CiCalendarDate className={styles.padding} />
-          <strong>Date:</strong> {ticketDate}
+          <strong>Date:</strong> {date}
         </p>
         <p>
           <CiTimer className={styles.padding} />
@@ -81,8 +79,18 @@ export default function TicketCard({
       <div className={styles.cardFooter}>
         <p className={styles.price} disabled>
           To be paid: {price} Lek
+          <ReactToPrint
+            trigger={() => (
+              <button className={styles.pdf}>
+                <BsFiletypePdf />
+              </button>
+            )}
+            content={() => componentRef.current}
+          />
         </p>
       </div>
     </div>
   );
-}
+};
+
+export default TicketCard;
