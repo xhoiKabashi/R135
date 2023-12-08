@@ -14,6 +14,7 @@ import { useContext } from "react";
 import Lang from "../../Context";
 import { sq, eng, de, it } from "./NavBarData";
 import LangDropDown from "../dropdown/LangDropDown";
+import Language from "./lang/Lang";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -89,6 +90,7 @@ function Navbar() {
               <path d="M11 7L9.6 8.4L12.2 11H2V13H12.2L9.6 15.6L11 17L16 12L11 7M20 19H12V21H20C21.1 21 22 20.1 22 19V5C22 3.9 21.1 3 20 3H12V5H20V19Z" />
             </svg>
           </Link>
+          <Language />
         </ul>
       </nav>
       {menuOpen && (

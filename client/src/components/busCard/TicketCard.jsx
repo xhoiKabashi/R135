@@ -25,6 +25,7 @@ const TicketCard = ({
   fullID,
 }) => {
   const { ticketDate, setTicketId } = useBusDataStore();
+  console.log(typeof ticketDate);
 
   const componentRef = useRef();
 

@@ -39,10 +39,6 @@
   font-weight: 500;
 }
 
-/* moving the Porfile logo on the right */
-ul li:nth-child(3) {
-  margin-right: 30px;
-}
 /* styling and shaping */
 .nav img {
   fill: var(--textColor);
@@ -95,7 +91,7 @@ ul li:nth-child(3) {
   background: var(--navColor);
   font-family: var(--mainFont);
   color: var(--textColor);
-  font-size: 22px;
+  font-size: 25px;
   height: 55px;
   width: 100%;
   display: flex;

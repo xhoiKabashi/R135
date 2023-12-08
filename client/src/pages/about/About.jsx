@@ -5,7 +5,7 @@ import styles from "./About.module.css";
 import { en, sq, it, de } from "./about.data";
 import Lang from "../../Context";
 import { v4 as uuidv4 } from "uuid";
-import useBusDataStore from "../../store/store";
+import useBusDataStore from "../../store/Store";
 
 const cookies = new Cookies();
 
