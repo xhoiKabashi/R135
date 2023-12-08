@@ -1,4 +1,4 @@
-import styles from "./Contact.module.css";
+import styles from "./contact.module.css";
 import Img from "../../components/imgComponents/Img";
 import TextComponents from "../../components/textcomponents/TextComponents";
 import { useContext } from "react";
