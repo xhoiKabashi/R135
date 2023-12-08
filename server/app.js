@@ -11,6 +11,8 @@ const axios = require("axios");
 const busModels = require("./models/busModels");
 const BookingDetail = require("./models/bookingDetail");
 
+const mongoose = require("mongoose");
+
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -164,7 +166,7 @@ app.post("/api/routes", async (req, res) => {
     const {
       from,
       to,
-      date,
+
       bus,
       fromTime,
       toTime,
@@ -287,6 +289,30 @@ app.get("/api/bookings", async (req, res) => {
 
     res.json({ success: true, tickets });
   } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.get("/api/bookings/:id", async (req, res) => {
+  try {
+    const bookingId = req.params.id;
+
+    // Check if the provided ID is a valid MongoDB ObjectId
+    if (!mongoose.Types.ObjectId.isValid(bookingId)) {
+      return res.status(400).json({ error: "Invalid booking ID" });
+    }
+
+    // Find the booking by _id
+    const booking = await BookingDetail.findById(bookingId);
+
+    // Check if the booking exists
+    if (!booking) {
+      return res.status(404).json({ error: "Booking not found" });
+    }
+
+    res.json({ success: true, booking });
+  } catch (error) {
+    console.error(error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });

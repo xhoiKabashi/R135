@@ -4,7 +4,7 @@ const mongoose = require("mongoose"),
 const busModels = new Schema({
   from: String,
   to: String,
-  date: String,
+  date: Number,
   bus: String,
   fromTime: String,
   toTime: String,
