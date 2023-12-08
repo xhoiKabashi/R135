@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Dna } from "react-loader-spinner";
-import styles from "./Img.module.css";
+import styles from "./img.module.css";
 
 function Img({ src }) {
   const [isLoaded, setIsLoaded] = useState(false);
