@@ -17,7 +17,7 @@ function CreateAcc() {
     e.preventDefault();
     const configuration = {
       method: "post",
-      url: "http://localhost:3000/register",
+      url: "https://asetapi.onrender.com/register",
       data: {
         email,
         password,

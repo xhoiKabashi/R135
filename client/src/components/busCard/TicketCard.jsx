@@ -34,7 +34,10 @@ const TicketCard = ({
       <div className={styles.cardHeader}>
         <div className={styles.qr}>
           <h4>Ticket Details</h4>
-          <QRCode value={`http://localhost:5173/ticket/${fullID}`} size={60} />
+          <QRCode
+            value={`https://asetapi.onrender.com/api/${fullID}`}
+            size={60}
+          />
         </div>
         <span className={styles.userDetails}>
           <p>

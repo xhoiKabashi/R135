@@ -29,7 +29,7 @@ function LoginPage() {
     e.preventDefault();
     const configuration = {
       method: "post",
-      url: "http://localhost:3000/login",
+      url: "https://asetapi.onrender.com/login",
       data: {
         email,
         password,

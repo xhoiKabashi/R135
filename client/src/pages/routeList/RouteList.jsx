@@ -9,7 +9,7 @@ function RouteList() {
 
   useEffect(() => {
     // Fetch available routes from the backend
-    axios.get("http://localhost:3000/api/routes").then((response) => {
+    axios.get("https://asetapi.onrender.com/api/routes").then((response) => {
       setRoutes(response.data);
     });
   }, []);

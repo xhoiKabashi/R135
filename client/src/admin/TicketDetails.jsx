@@ -13,7 +13,7 @@ function TicketDetails() {
     const fetchTicketDetails = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/bookings/${fullID}`
+          `https://asetapi.onrender.com/api/bookings/${fullID}`
         );
 
         setTicket(response.data.booking);

@@ -53,7 +53,7 @@ function HomePage() {
 
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/routes?from=${departure}&to=${arrival}`
+        `https://asetapi.onrender.com/api/routes?from=${departure}&to=${arrival}`
       );
       busStore.setBusData(response.data.routes);
     } catch (error) {
