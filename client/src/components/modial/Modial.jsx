@@ -36,13 +36,13 @@ export default function BasicModal({ open, setOpen }) {
         >
           <ModalClose variant="plain" sx={{ m: 1 }} />
           <Typography
-            component="h3"
+            component="h5"
             id="modal-title"
             level="h4"
             textColor="inherit"
             fontWeight="lg"
-            mb={1}
-            p={3}
+            mb={0}
+            p={2}
           >
             Booking Successful
           </Typography>
@@ -51,12 +51,12 @@ export default function BasicModal({ open, setOpen }) {
           </Typography>
           <Typography
             className={styles.modal}
-            component="h3"
+            component="h4"
             id="modal-title"
-            level="h4"
+            level="h5"
             textColor="inherit"
             fontWeight="lg"
-            mb={1}
+            mb={2}
             alignItems="center"
           >
             <button

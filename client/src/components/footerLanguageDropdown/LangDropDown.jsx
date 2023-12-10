@@ -27,7 +27,6 @@ function LangDropDown() {
 
   function handleShow() {
     setshow(!show);
-    console.log("Managed");
   }
   return (
     <>

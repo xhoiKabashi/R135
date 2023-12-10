@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import styles from "./TicketDetails.module.css";
+import { apiURL } from "../api";
 
 function TicketDetails() {
   const { fullID } = useParams();
@@ -12,9 +13,7 @@ function TicketDetails() {
   useEffect(() => {
     const fetchTicketDetails = async () => {
       try {
-        const response = await axios.get(
-          `https://asetapi.onrender.com/api/bookings/${fullID}`
-        );
+        const response = await axios.get(`${apiURL}${fullID}`);
 
         setTicket(response.data.booking);
       } catch (error) {

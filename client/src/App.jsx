@@ -15,7 +15,7 @@ import NeedHelp from "./pages/needHelp/NeedHelp";
 import Radio from "./pages/radio/Radio";
 import RouteList from "./pages/routeList/RouteList";
 import Contact from "./pages/contact/Contact";
-import Select from "./pages/select/Select";
+import Select from "./pages/selectTicket/Select";
 import BookTicket from "./pages/bookTicket/BookTicket";
 import PayTicket from "./pages/bookTicket/payTicket/PayTicket";
 

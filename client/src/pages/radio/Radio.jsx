@@ -17,10 +17,9 @@ function MyRadioPlayer() {
   } else if (dataa === "de") {
     languageData = de;
   } else {
+    // eslint-disable-next-line no-unused-vars
     languageData = en;
   }
-
-  console.log(languageData);
 
   return (
     <div className={styles.container}>

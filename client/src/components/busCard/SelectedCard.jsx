@@ -7,13 +7,11 @@ import { CiCalendarDate, CiTimer, CiLocationOn } from "react-icons/ci";
 export default function BusCard({
   busFrom,
   busTo,
-
   busFromTime,
   busToTime,
   busPrice,
 }) {
   const { ticketDate } = useBusDataStore();
-  console.log(ticketDate);
 
   return (
     <div className={styles.card}>

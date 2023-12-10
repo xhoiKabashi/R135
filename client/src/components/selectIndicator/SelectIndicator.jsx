@@ -15,7 +15,7 @@ export default function SelectIndicator({
   setNumberOfPassenger,
   numberOfPassenger,
 }) {
-  const { ticketDate, setTicketData } = useBusDataStore();
+  const { setTicketData } = useBusDataStore();
   const [todaysDate] = useState();
 
   // setTicketData(todaysDate);
@@ -95,8 +95,8 @@ export default function SelectIndicator({
                 type="date"
                 name="selectedDate"
                 value={todaysDate}
-                min="2023-11-11"
-                max="2024-12-31"
+                min="10-12-2023"
+                max="10-12-2024"
                 onChange={(e) => handleDateChange(e)}
                 className={styles.dateInput}
                 required

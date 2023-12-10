@@ -27,4 +27,7 @@
   .audio {
     width: 350px;
   }
+  .container > h2 {
+    font-size: 15px;
+  }
 }

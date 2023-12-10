@@ -13,6 +13,7 @@ import useBusDataStore from "../../store/Store.jsx";
 import { useNavigate } from "react-router-dom";
 import SnackBar from "../../components/modial/Snakebar.jsx";
 const cookies = new Cookies();
+import { apiURL } from "../../api.js";
 
 function HomePage() {
   const { data } = useContext(Lang);
@@ -53,13 +54,12 @@ function HomePage() {
 
     try {
       const response = await axios.get(
-        `https://asetapi.onrender.com/api/routes?from=${departure}&to=${arrival}`
+        `${apiURL}api/routes?from=${departure}&to=${arrival}`
       );
       busStore.setBusData(response.data.routes);
     } catch (error) {
       console.error("Error while searching:", error);
     } finally {
-      console.log("Completed");
       navigate("/select-ticket");
     }
   }
@@ -109,6 +109,7 @@ function HomePage() {
             text={datas.text}
             buttonText={datas.buttonText}
             image={datas.image}
+            href={datas.href}
           />
         ))}
       </div>

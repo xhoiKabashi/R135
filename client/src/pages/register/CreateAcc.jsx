@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
-import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import styles from "./CreateAcc.module.css";
+import { apiURL } from "../../api";
 
 function CreateAcc() {
   const [email, setEmail] = useState("");
@@ -17,7 +17,7 @@ function CreateAcc() {
     e.preventDefault();
     const configuration = {
       method: "post",
-      url: "https://asetapi.onrender.com/register",
+      url: `${apiURL}register`,
       data: {
         email,
         password,

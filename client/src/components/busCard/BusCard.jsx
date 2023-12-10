@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
+
 import AspectRatio from "@mui/joy/AspectRatio";
+import Box from "@mui/joy/Box";
 import Button from "@mui/joy/Button";
 import Card from "@mui/joy/Card";
 import CardContent from "@mui/joy/CardContent";
-import CardOverflow from "@mui/joy/CardOverflow";
-import Chip from "@mui/joy/Chip";
-import useBusDataStore from "../../store/Store";
 import Typography from "@mui/joy/Typography";
+import Sheet from "@mui/joy/Sheet";
+import useBusDataStore from "../../store/Store";
 
 export default function BusCard({
   busFrom,
@@ -18,46 +19,64 @@ export default function BusCard({
 }) {
   const { ticketDate } = useBusDataStore();
   return (
-    <Card sx={{ width: 320, maxWidth: "100%", boxShadow: "lg" }}>
-      <CardOverflow>
-        <AspectRatio sx={{ minWidth: 200 }}>
+    <Box
+      sx={{
+        width: "100%",
+      }}
+    >
+      <Card
+        orientation="horizontal"
+        sx={{
+          width: "100%",
+          "@media (max-width: 600px)": {
+            flexDirection: "column",
+          },
+        }}
+      >
+        <AspectRatio flex ratio="1" hight={182} sx={{ minWidth: 232 }}>
           <img src={busImage} srcSet={busImage} loading="lazy" alt="" />
         </AspectRatio>
-      </CardOverflow>
-      <CardContent>
-        <Typography level="body-xs">
-          {busFrom} - {busTo}
-        </Typography>
-        <Typography
-          href="#product-card"
-          fontWeight="md"
-          color="neutral"
-          textColor="text.primary"
-          overlay="true"
-        >
-          {ticketDate} Date
-        </Typography>
-
-        <Typography
-          level="title-lg"
-          sx={{ mt: 1, fontWeight: "xl" }}
-          endDecorator={
-            <Chip component="span" size="sm" variant="soft" color="success">
-              Lowest price
-            </Chip>
-          }
-        >
-          {busPrice} Lek
-        </Typography>
-        <Typography level="body-sm">
-          Departure: {busFromTime} - Arrival: {busToTime}
-        </Typography>
-      </CardContent>
-      <CardOverflow>
-        <Button variant="solid" style={{ color: "white" }} size="lg">
-          Select Bus ticket
-        </Button>
-      </CardOverflow>
-    </Card>
+        <CardContent>
+          <Typography fontSize="xl" fontWeight="lg">
+            {busFrom} - {busTo}
+          </Typography>
+          <Typography level="body-sm" fontWeight="lg" textColor="text.tertiary">
+            Date: {ticketDate}
+          </Typography>
+          <Sheet
+            sx={{
+              bgcolor: "background.level1",
+              borderRadius: "sm",
+              p: 1.5,
+              my: 1.5,
+              display: "flex",
+              gap: 2,
+              "& > div": { flex: 1 },
+            }}
+          >
+            <div>
+              <Typography level="body-xs" fontWeight="lg">
+                Departure:
+              </Typography>
+              <Typography fontWeight="lg">{busFromTime} </Typography>
+            </div>
+            <div>
+              <Typography level="body-xs" fontWeight="lg">
+                Arrival:
+              </Typography>
+              <Typography fontWeight="lg">{busToTime}</Typography>
+            </div>
+          </Sheet>
+          <Box sx={{ display: "flex", gap: 1.5, "& > button": { flex: 1 } }}>
+            <Button variant="outlined" color="neutral" disabled>
+              Cost: {busPrice} Lek
+            </Button>
+            <Button variant="solid" color="primary">
+              Select
+            </Button>
+          </Box>
+        </CardContent>
+      </Card>
+    </Box>
   );
 }

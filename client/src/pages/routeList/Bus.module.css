@@ -1,14 +1,14 @@
-.flight {
+.bus {
   border: 1px solid #ccc;
   padding: 10px;
   margin: 10px;
 }
 
-.flight p {
+.bus p {
   margin: 0;
 }
 
-.flight button {
+.bus button {
   background-color: #0074cc;
   color: #fff;
   border: none;

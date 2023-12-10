@@ -9,6 +9,7 @@ import { AuthContext } from "../../Context";
 import Cookies from "universal-cookie";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { apiURL } from "../../api";
 
 const cookies = new Cookies();
 
@@ -32,13 +33,11 @@ function BookTicket() {
   const token = cookies.get("TOKEN");
   const { setUser } = useContext(AuthContext);
 
-  console.log(ticketDate);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const configuration = {
       method: "post",
-      url: "http://localhost:3000/api/bookings",
+      url: `${apiURL}api/bookings`,
       data: {
         name,
         lastName,

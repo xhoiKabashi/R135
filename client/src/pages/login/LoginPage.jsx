@@ -3,15 +3,16 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link, Navigate } from "react-router-dom";
 import styles from "./LoginPage.module.css"; // Import your new CSS module
-import { AuthContext } from "../../Context";
+// import { AuthContext } from "../../Context";
 import Cookies from "universal-cookie";
 const cookies = new Cookies();
-import { acctualToken } from "../../tokenService";
+// import { acctualToken } from "../../tokenService";
+import { apiURL } from "../../api";
 
 // Inside your login function
 
 function LoginPage() {
-  const { setUser } = useContext(AuthContext);
+  // const { setUser } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [login, setLogin] = useState(false);
@@ -29,7 +30,7 @@ function LoginPage() {
     e.preventDefault();
     const configuration = {
       method: "post",
-      url: "https://asetapi.onrender.com/login",
+      url: `${apiURL}login`,
       data: {
         email,
         password,

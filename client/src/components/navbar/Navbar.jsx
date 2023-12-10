@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import Icon from "@mdi/react";
-// those are for  getin the Icones
+// those are for  gettin the Icones
 import { mdiHomeExportOutline } from "@mdi/js";
 import { mdiClipboardListOutline } from "@mdi/js";
 import { mdiInformationOutline } from "@mdi/js";
@@ -13,19 +13,18 @@ import { AuthContext } from "../../Context";
 import { useContext } from "react";
 import Lang from "../../Context";
 import { sq, eng, de, it } from "./NavBarData";
-import LangDropDown from "../dropdown/LangDropDown";
+import LangDropDown from "../footerLanguageDropdown/LangDropDown";
 import Language from "./lang/Lang";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { data, setData } = useContext(Lang);
+  const { data } = useContext(Lang);
   const { user } = useContext(AuthContext);
 
   let text;
 
   if (data === "de") {
     text = de;
-    console.log(setData);
   } else if (data === "ita") {
     text = it;
   } else if (data === "sq") {

@@ -29,14 +29,14 @@ function LangMenu() {
         <Menu size="sm" className={styles.langDropDown}>
           <MenuItem>
             <img
-              src="./public/flags/al.png"
+              src="./flags/al.png"
               alt="albanian flag"
               onClick={() => handleFlagClick("al")}
             />
           </MenuItem>
           <MenuItem>
             <img
-              src="./public/flags/de.png"
+              src="./flags/de.png"
               alt="german flag"
               onClick={() => handleFlagClick("de")}
             />
@@ -44,14 +44,14 @@ function LangMenu() {
 
           <MenuItem>
             <img
-              src="./public/flags/it.png"
+              src="./flags/it.png"
               alt="italian flag"
               onClick={() => handleFlagClick("it")}
             />
           </MenuItem>
           <MenuItem>
             <img
-              src="./public/flags/eng.png"
+              src="./flags/eng.png"
               alt="english flag"
               onClick={() => handleFlagClick("eng")}
             />

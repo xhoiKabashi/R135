@@ -11,6 +11,7 @@ import TabList from "@mui/joy/TabList";
 import Tab from "@mui/joy/Tab";
 import TabPanel from "@mui/joy/TabPanel";
 import TicketCard from "../../components/busCard/TicketCard";
+import { apiURL } from "../../api";
 
 const cookies = new Cookies();
 
@@ -36,7 +37,7 @@ function MyBookings() {
     const fetchData = async () => {
       try {
         if (token) {
-          const response = await axios.get("http://localhost:3000/user-data", {
+          const response = await axios.get(`${apiURL}user-data`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -48,7 +49,7 @@ function MyBookings() {
           setUser(true);
 
           const ticketResponse = await axios.get(
-            `http://localhost:3000/api/bookings?userID=${userData._id}`
+            `${apiURL}api/bookings?userID=${userData._id}`
           );
           const useTicket = ticketResponse.data;
           setTicket(useTicket.tickets);
@@ -67,6 +68,17 @@ function MyBookings() {
   }
 
   if (ticket !== null) {
+    // Get the current date
+    const currentDate = new Date().toISOString().split("T")[0];
+
+    // Filter past tickets
+    const pastTickets = ticket.filter((booking) => booking.date < currentDate);
+
+    // Filter active tickets (future tickets)
+    const activeTickets = ticket.filter(
+      (booking) => booking.date >= currentDate
+    );
+
     // Display user data once retrieved
     return (
       <div className={styles.container}>
@@ -100,7 +112,7 @@ function MyBookings() {
               }}
             >
               {ticket && ticket.length > 0 ? (
-                ticket.map((booking) => (
+                activeTickets.map((booking) => (
                   <div key={booking._id}>
                     <TicketCard
                       name={booking.name}
@@ -127,7 +139,27 @@ function MyBookings() {
                 width: 300,
               }}
             >
-              {ticket && ticket.length === 0 && <p>No past bookings</p>}
+              {ticket && ticket.length > 0 ? (
+                pastTickets.map((booking) => (
+                  <div key={booking._id}>
+                    <TicketCard
+                      name={booking.name}
+                      lastName={booking.lastName}
+                      busFrom={booking.from}
+                      busTo={booking.to}
+                      date={booking.date}
+                      busFromTime={booking.fromTime}
+                      toTime={booking.toTime}
+                      age={booking.age}
+                      price={booking.price}
+                      id={booking._id.slice(0, 10)}
+                      fullID={booking._id}
+                    />
+                  </div>
+                ))
+              ) : (
+                <p>No past bookings</p>
+              )}
             </TabPanel>
           </Tabs>
         </div>

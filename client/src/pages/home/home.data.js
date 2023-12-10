@@ -5,6 +5,7 @@ export const en = [
     buttonText: "Explore",
     image:
       "https://elitetravel-albania.com/wp-content/uploads/2021/06/Elbasan-city-Albania.jpg",
+    href: "https://www.intoalbania.com/city/elbasan/",
   },
   {
     title: "Korca",
@@ -12,6 +13,7 @@ export const en = [
     buttonText: "Explore",
     image:
       "https://www.travelsicht.de/wp-content/uploads/2023/02/korca-1180x885.jpg",
+    href: "https://albaniavisit.com/destinations/korce/",
   },
   {
     title: "Tirana",
@@ -19,6 +21,7 @@ export const en = [
     buttonText: "Explore",
     image:
       "https://kittiaroundtheworld.com/wp-content/uploads/2023/03/View-of-Tirana.jpg",
+    href: "https://albaniavisit.com/destinations/tirana/",
   },
   {
     title: "Pogradec",
@@ -26,14 +29,15 @@ export const en = [
     buttonText: "Explore",
     image:
       "https://tourisminalbania.com/wp-content/uploads/2020/11/Drilon-ALBANIA.jpg",
+    href: "https://albaniavisit.com/destinations/pogradec/",
   },
-  {
-    title: "Erseka",
-    text: "Surrounded by majestic mountains, Erseka is a charming mountain town offering a refreshing escape into nature. Known for its outdoor activities and pristine landscapes, Erseka is a haven for hikers and adventure seekers. Experience the tranquility of the mountains and discover the natural beauty that defines Erseka.",
-    buttonText: "Explore",
-    image:
-      "https://elitetravel.al/wp-content/uploads/2020/09/Gryka-e-Kelcyres-6.jpg",
-  },
+  // {
+  //   title: "Erseka",
+  //   text: "Surrounded by majestic mountains, Erseka is a charming mountain town offering a refreshing escape into nature. Known for its outdoor activities and pristine landscapes, Erseka is a haven for hikers and adventure seekers. Experience the tranquility of the mountains and discover the natural beauty that defines Erseka.",
+  //   buttonText: "Explore",
+  //   image:
+  //     "https://elitetravel.al/wp-content/uploads/2020/09/Gryka-e-Kelcyres-6.jpg",
+  // },
 ];
 export const it = [
   {
@@ -42,6 +46,7 @@ export const it = [
     buttonText: "Esplora",
     image:
       "https://strongcitiesnetwork.org/wp-content/uploads/2023/02/Elbasan.jpg",
+    href: "https://www.intoalbania.com/city/elbasan/",
   },
   {
     title: "Korca",
@@ -49,6 +54,7 @@ export const it = [
     buttonText: "Esplora",
     image:
       "https://www.travelsicht.de/wp-content/uploads/2023/02/korca-1180x885.jpg",
+    href: "https://albaniavisit.com/destinations/korce/",
   },
   {
     title: "Tirana",
@@ -56,6 +62,7 @@ export const it = [
     buttonText: "Esplora",
     image:
       "https://kittiaroundtheworld.com/wp-content/uploads/2023/03/View-of-Tirana.jpg",
+    href: "https://albaniavisit.com/destinations/tirana/",
   },
   {
     title: "Pogradec",
@@ -63,14 +70,15 @@ export const it = [
     buttonText: "Esplora",
     image:
       "https://tourisminalbania.com/wp-content/uploads/2020/11/Drilon-ALBANIA.jpg",
+    href: "https://albaniavisit.com/destinations/pogradec/",
   },
-  {
-    title: "Erseka",
-    text: "Incastonata tra montagne maestose, Erseka è una suggestiva cittadina di montagna che offre una fuga rinfrescante nella natura. Conosciuta per le attività all'aperto e i paesaggi incontaminati, Erseka è un rifugio per escursionisti e cercatori di avventure. Sperimenta la tranquillità delle montagne e scopri la bellezza naturale che caratterizza Erseka.",
-    buttonText: "Esplora",
-    image:
-      "https://elitetravel.al/wp-content/uploads/2020/09/Gryka-e-Kelcyres-6.jpg",
-  },
+  // {
+  //   title: "Erseka",
+  //   text: "Incastonata tra montagne maestose, Erseka è una suggestiva cittadina di montagna che offre una fuga rinfrescante nella natura. Conosciuta per le attività all'aperto e i paesaggi incontaminati, Erseka è un rifugio per escursionisti e cercatori di avventure. Sperimenta la tranquillità delle montagne e scopri la bellezza naturale che caratterizza Erseka.",
+  //   buttonText: "Esplora",
+  //   image:
+  //     "https://elitetravel.al/wp-content/uploads/2020/09/Gryka-e-Kelcyres-6.jpg",
+  // },
 ];
 export const sq = [
   {
@@ -79,6 +87,7 @@ export const sq = [
     buttonText: "Eksploro",
     image:
       "https://strongcitiesnetwork.org/wp-content/uploads/2023/02/Elbasan.jpg",
+    href: "https://www.intoalbania.com/city/elbasan/",
   },
   {
     title: "Korça",
@@ -86,6 +95,7 @@ export const sq = [
     buttonText: "Eksploro",
     image:
       "https://www.travelsicht.de/wp-content/uploads/2023/02/korca-1180x885.jpg",
+    href: "https://albaniavisit.com/destinations/korce/",
   },
   {
     title: "Tirana",
@@ -93,6 +103,7 @@ export const sq = [
     buttonText: "Eksploro",
     image:
       "https://kittiaroundtheworld.com/wp-content/uploads/2023/03/View-of-Tirana.jpg",
+    href: "https://albaniavisit.com/destinations/tirana/",
   },
   {
     title: "Pogradeci",
@@ -100,14 +111,15 @@ export const sq = [
     buttonText: "Eksploro",
     image:
       "https://tourisminalbania.com/wp-content/uploads/2020/11/Drilon-ALBANIA.jpg",
+    href: "https://albaniavisit.com/destinations/pogradec/",
   },
-  {
-    title: "Erseka",
-    text: "Rrethuar nga malet mahnitëse, Erseka është një qytet i bukur malor që ofron një shpëtim të freskët në natyrë. Njohur për aktivitetet e jashtme dhe peizazhet e pashtershme, Erseka është një strehim për hikëbërë dhe kërkuesit e aventurës. Përjetoni qetësinë e maleve dhe zbuloni bukurinë natyrore që përcakton Ersekën.",
-    buttonText: "Eksploro",
-    image:
-      "https://elitetravel.al/wp-content/uploads/2020/09/Gryka-e-Kelcyres-6.jpg",
-  },
+  // {
+  //   title: "Erseka",
+  //   text: "Rrethuar nga malet mahnitëse, Erseka është një qytet i bukur malor që ofron një shpëtim të freskët në natyrë. Njohur për aktivitetet e jashtme dhe peizazhet e pashtershme, Erseka është një strehim për hikëbërë dhe kërkuesit e aventurës. Përjetoni qetësinë e maleve dhe zbuloni bukurinë natyrore që përcakton Ersekën.",
+  //   buttonText: "Eksploro",
+  //   image:
+  //     "https://elitetravel.al/wp-content/uploads/2020/09/Gryka-e-Kelcyres-6.jpg",
+  // },
 ];
 
 export const de = [
@@ -117,6 +129,7 @@ export const de = [
     buttonText: "Erkunden",
     image:
       "https://strongcitiesnetwork.org/wp-content/uploads/2023/02/Elbasan.jpg",
+    href: "https://www.intoalbania.com/city/elbasan/",
   },
   {
     title: "Korca",
@@ -124,6 +137,7 @@ export const de = [
     buttonText: "Erkunden",
     image:
       "https://www.travelsicht.de/wp-content/uploads/2023/02/korca-1180x885.jpg",
+    href: "https://albaniavisit.com/destinations/korce/",
   },
   {
     title: "Tirana",
@@ -131,6 +145,7 @@ export const de = [
     buttonText: "Erkunden",
     image:
       "https://kittiaroundtheworld.com/wp-content/uploads/2023/03/View-of-Tirana.jpg",
+    href: "https://albaniavisit.com/destinations/tirana/",
   },
   {
     title: "Pogradec",
@@ -138,12 +153,13 @@ export const de = [
     buttonText: "Erkunden",
     image:
       "https://tourisminalbania.com/wp-content/uploads/2020/11/Drilon-ALBANIA.jpg",
+    href: "https://albaniavisit.com/destinations/pogradec/",
   },
-  {
-    title: "Erseka",
-    text: "Umgeben von majestätischen Bergen ist Erseka eine charmante Bergstadt, die einen erfrischenden Ausflug in die Natur bietet. Bekannt für Outdoor-Aktivitäten und unberührte Landschaften, ist Erseka ein Paradies für Wanderer und Abenteuersuchende. Erleben Sie die Ruhe der Berge und entdecken Sie die natürliche Schönheit, die Erseka ausmacht.",
-    buttonText: "Erkunden",
-    image:
-      "https://elitetravel.al/wp-content/uploads/2020/09/Gryka-e-Kelcyres-6.jpg",
-  },
+  // {
+  //   title: "Erseka",
+  //   text: "Umgeben von majestätischen Bergen ist Erseka eine charmante Bergstadt, die einen erfrischenden Ausflug in die Natur bietet. Bekannt für Outdoor-Aktivitäten und unberührte Landschaften, ist Erseka ein Paradies für Wanderer und Abenteuersuchende. Erleben Sie die Ruhe der Berge und entdecken Sie die natürliche Schönheit, die Erseka ausmacht.",
+  //   buttonText: "Erkunden",
+  //   image:
+  //     "https://elitetravel.al/wp-content/uploads/2020/09/Gryka-e-Kelcyres-6.jpg",
+  // },
 ];

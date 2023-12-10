@@ -8,6 +8,7 @@ import useBusDataStore from "../../store/Store";
 import QRCode from "react-qr-code";
 import { CiCalendarDate, CiTimer, CiLocationOn, CiUser } from "react-icons/ci";
 import { BsFiletypePdf } from "react-icons/bs";
+import { apiURL } from "../../api";
 
 import ReactToPrint from "react-to-print";
 
@@ -25,7 +26,6 @@ const TicketCard = ({
   fullID,
 }) => {
   const { ticketDate, setTicketId } = useBusDataStore();
-  console.log(typeof ticketDate);
 
   const componentRef = useRef();
 
@@ -34,10 +34,7 @@ const TicketCard = ({
       <div className={styles.cardHeader}>
         <div className={styles.qr}>
           <h4>Ticket Details</h4>
-          <QRCode
-            value={`https://asetapi.onrender.com/api/${fullID}`}
-            size={60}
-          />
+          <QRCode value={`${apiURL}${fullID}`} size={60} />
         </div>
         <span className={styles.userDetails}>
           <p>
