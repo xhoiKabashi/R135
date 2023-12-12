@@ -12,6 +12,11 @@ export default function Notification() {
   const [open, setOpen] = useState(false);
   const [notify, setNotify] = useState(1);
 
+  function handlenotificationModial() {
+    setNotify(null);
+    setOpen(false);
+  }
+
   return (
     <React.Fragment>
       <Badge badgeContent={notify} color="info" onClick={() => setOpen(true)}>
@@ -43,6 +48,7 @@ export default function Notification() {
             textColor="inherit"
             fontWeight="lg"
             mb={2}
+            onClick={() => setOpen(false)}
           >
             Notifications
           </Typography>
@@ -51,7 +57,7 @@ export default function Notification() {
               <>No notification</>
             ) : (
               <>
-                <Link to="radio" onClick={() => setNotify(null)}>
+                <Link to="radio" onClick={() => handlenotificationModial()}>
                   Click here to Listen Music, Bon Voyage
                 </Link>
               </>
