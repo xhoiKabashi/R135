@@ -30,6 +30,7 @@ Entire application development, encompassing front-end, back-end, and database c
 Design and implementation of the user interface and user experience.
 Data flow management and communication between front-end and back-end.
 Deployment of the application on Netlify and Render.
+
 Learning & Growth:
 
 This project provided a valuable learning opportunity:
