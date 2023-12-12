@@ -14,6 +14,7 @@ Database: MongoDB for storing bus schedules, booking information, and user data.
 Deployment:
 Front-end: Netlify for public access.
 Server: Render for scalability and reliability.
+
 Project Highlights:
 
 Uniqueness & Challenge:
