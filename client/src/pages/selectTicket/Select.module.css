@@ -10,9 +10,23 @@
   flex-wrap: wrap;
   justify-content: center;
   padding: 20px 0px;
-
   gap: 60px;
   width: 100%;
+}
+.para {
+  font-family: "Open Sans", sans-serif;
+  min-height: 100vh;
+}
+.button {
+  width: 20px;
+  background-color: var(--buttonColor);
+  border: solid 1px #f1f5f9;
+  color: white;
+  padding: 5px;
+  font-size: 13px;
+  margin: 0 auto;
+  border-radius: 15px;
+  cursor: pointer;
 }
 
 @media (max-width: 900px) {

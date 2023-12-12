@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import Icon from "@mdi/react";
+
 // those are for  gettin the Icones
 import { mdiHomeExportOutline } from "@mdi/js";
 import { mdiClipboardListOutline } from "@mdi/js";
@@ -15,6 +16,7 @@ import Lang from "../../Context";
 import { sq, eng, de, it } from "./NavBarData";
 import LangDropDown from "../footerLanguageDropdown/LangDropDown";
 import Language from "./lang/Lang";
+import Notification from "../notification/NotificationModial";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -64,6 +66,7 @@ function Navbar() {
         >
           <path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
         </svg>
+        <Notification />
         <div className={styles.mainLogo}>
           <Link to="/home">
             <img src="./bus-logo.png" alt="" />

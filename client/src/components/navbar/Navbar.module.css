@@ -59,6 +59,7 @@
   display: none;
   width: 100px;
   cursor: pointer;
+  padding-right: 10px;
 }
 
 /* display the menu for mobile version */
