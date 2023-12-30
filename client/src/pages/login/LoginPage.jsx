@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useState, useEffect, useContext } from "react";
+import CircularProgress from "@mui/joy/CircularProgress";
+
 import axios from "axios";
 import { Link, Navigate } from "react-router-dom";
 import styles from "./LoginPage.module.css"; // Import your new CSS module
@@ -16,6 +18,7 @@ function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [login, setLogin] = useState(false);
+  const [waiting, setWaiting] = useState(false);
   const [error, setError] = useState(null);
   const [token, setToken] = useState(localStorage.getItem("token") || null);
   localStorage.setItem("TOKEN", token);
@@ -28,6 +31,7 @@ function LoginPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setWaiting(true);
     const configuration = {
       method: "post",
       url: `${apiURL}login`,
@@ -89,7 +93,9 @@ function LoginPage() {
                 required
               />
             </div>
-            <button type="submit">Login</button>
+            <button type="submit">
+              {waiting ? "Please wait..." : "Login"}
+            </button>
           </form>
           {/* Navigate to Create Account page */}
           <Link to="/register" className={styles.link}>
