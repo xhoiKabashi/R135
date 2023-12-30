@@ -11,10 +11,12 @@ function CreateAcc() {
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [register, setRegister] = useState(false);
+  const [waiting, setWaiting] = useState(false);
   const [registerError, setRegisterError] = useState(null); // New state for error
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setWaiting(true);
     const configuration = {
       method: "post",
       url: `${apiURL}register`,
@@ -91,7 +93,7 @@ function CreateAcc() {
               autoComplete="current-password"
             />
           </div>
-          <button>Create account</button>
+          <button>{waiting ? "Please wait..." : "Create account"}</button>
           {register ? (
             <p className={styles.successText}>
               You Are Registered Successfully
